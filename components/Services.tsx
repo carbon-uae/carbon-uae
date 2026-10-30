@@ -1,118 +1,134 @@
-"use client";
-
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import Link from "next/link";
 import styles from "./Services.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const services = [
+  {
+    title: "Commercial Printing",
+    description: "Stationery, flyers, brochures and business essentials with a refined finish.",
+    image: "/assets/stationery.jpg",
+    alt: "Printed stationery and branded paper goods",
+    emphasis: true,
+  },
+  {
+    title: "Packaging Products",
+    description: "Custom boxes, sleeves and presentation packaging designed around your brand.",
+    image: "/assets/gift-boxes.jpg",
+    alt: "Premium gift boxes and packaging with ribbon",
+  },
+  {
+    title: "Large Format Printing",
+    description: "High-impact visuals for retail, events, interiors and branded environments.",
+    image: "/assets/carbon-press-editorial.png",
+    alt: "Modern wide-format printing press producing monochrome packaging sheets",
+  },
+  {
+    title: "Screen Printing",
+    description: "Durable, tactile print for uniforms, merchandise and brand applications.",
+    image: "/assets/carbon-screen-printing.png",
+    alt: "Screen-printing frame, ink and textured paper on a production table",
+  },
+  {
+    title: "Digital & UV Printing",
+    description: "Crisp short runs, vivid colour and premium detail for campaigns and launches.",
+    image: "/assets/color-design.jpg",
+    alt: "Designer comparing printed colour swatches",
+  },
+  {
+    title: "Flexible Packaging",
+    description: "Practical, polished packaging formats for food, retail and everyday products.",
+    image: "/assets/food-packaging.jpg",
+    alt: "Paper food packaging and takeaway bags",
+  },
+  {
+    title: "Point of Sale Material (POSM)",
+    description: "Clear, consistent displays and print touchpoints that help products get noticed.",
+    image: "/assets/carbon-posm-display.png",
+    alt: "Point of sale displays, counter cards and printed promotional stands in a retail setting",
+  },
+  {
+    title: "Gift & Promotional Items",
+    description: "Memorable branded pieces that keep your business in your customer’s hands.",
+    image: "/assets/carbon-packaging-editorial.png",
+    alt: "Custom gift boxes, paper bags and promotional print pieces",
+  },
+  {
+    title: "Signage & Branding",
+    description: "A consistent visual presence across spaces, campaigns, packaging and collateral.",
+    image: "/assets/carbon-signage-posm.png",
+    alt: "Retail signage, POS displays and printed tags in a modern showroom",
+  },
+];
+
+const products = [
+  "Luxury Business Cards",
+  "Packaging Boxes",
+  "Food Packaging",
+  "Shopping Bags",
+  "Promotional Products",
+  "Corporate Stationery & Branding Materials",
+  "Stickers",
+  "Flyers & Brochures",
+  "Labels & Tags",
+];
 
 export default function Services() {
-  const containerRef = useRef<HTMLElement>(null);
-  const panelsContainerRef = useRef<HTMLDivElement>(null);
-  const panelsRef = useRef<HTMLDivElement[]>([]);
-
-  useGSAP(() => {
-    const panels = panelsRef.current;
-    
-    // Horizontal scrolling animation
-    gsap.to(panels, {
-      xPercent: -100 * (panels.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        pin: true,
-        scrub: 1,
-        snap: 1 / (panels.length - 1),
-        end: () => "+=" + (containerRef.current?.offsetWidth || 1000) * panels.length,
-      }
-    });
-
-    // Bending animation entering view
-    gsap.fromTo(containerRef.current, 
-      { clipPath: "inset(0% 2.5% 0% 2.5% round 48px)" },
-      {
-        clipPath: "inset(0% 0% 0% 0% round 0px)",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        }
-      }
-    );
-
-    // Bending animation leaving view
-    gsap.fromTo(containerRef.current, 
-      { clipPath: "inset(0% 0% 0% 0% round 0px)" },
-      {
-        clipPath: "inset(0% 2.5% 0% 2.5% round 48px)",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: true,
-        }
-      }
-    );
-  }, { scope: containerRef });
-
-  const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !panelsRef.current.includes(el)) {
-      panelsRef.current.push(el);
-    }
-  };
-
   return (
-    <div>
-      <section id="services" className={styles.servicesContainer} ref={containerRef}>
-        <div className={styles.panelsContainer} ref={panelsContainerRef}>
-          
-          {/* Panel 1 */}
-          <div 
-            className={`${styles.panel} ${styles.panelBlue}`} 
-            ref={addToRefs}
-          >
-            <div className={styles.panelContent}>
-              <div className={styles.indicator}>01</div>
-              <h2 className="text-massive text-italic">UI UX Design</h2>
-              <p className={styles.description}>
-                We craft intuitive, user-centric interfaces that convert.
-              </p>
-            </div>
-          </div>
-
-          {/* Panel 2 */}
-          <div 
-            className={`${styles.panel} ${styles.panelOrange}`} 
-            ref={addToRefs}
-          >
-            <div className={styles.panelContent}>
-              <div className={styles.indicator}>02</div>
-              <h2 className="text-massive text-italic">Web App Dev</h2>
-              <p className={styles.description}>
-                Robust, scalable Next.js and React applications tailored for your SaaS.
-              </p>
-            </div>
-          </div>
-
-          {/* Panel 3 */}
-          <div 
-            className={`${styles.panel} ${styles.panelPurple}`} 
-            ref={addToRefs}
-          >
-            <div className={styles.panelContent}>
-              <div className={styles.indicator}>03</div>
-              <h2 className="text-massive text-italic">Logo & Branding</h2>
-              <p className={styles.description}>
-                Establish trust instantly with premium visual identities.
-              </p>
-            </div>
-          </div>
-
+    <section id="services" className={`${styles.services} section-shell`} aria-labelledby="services-title">
+      <div className="container">
+        <div className={styles.heading}>
+          <h2 id="services-title" className="section-title">
+            Print that carries <em>your name well.</em>
+          </h2>
+          <p className="section-copy">
+            From high-volume production to thoughtful one-offs, our services are built to make every touchpoint feel intentional.
+          </p>
         </div>
-      </section>
-    </div>
+
+        <div className={styles.serviceGrid}>
+          {services.map((service) => (
+            <article key={service.title} className={`${styles.card} ${service.emphasis ? styles.cardFeature : ""}`}>
+              <div className={styles.cardImage}>
+                <Image src={service.image} alt={service.alt} fill sizes="(max-width: 700px) 100vw, 50vw" className={styles.image} />
+              </div>
+              <div className={styles.cardContent}>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <Link href="/contact" className={styles.cardCta}>Request a quote <span aria-hidden="true">↗</span></Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className={styles.productShowcase}>
+          <div className={styles.productIntro}>
+            <h3>Print pieces with <em>a physical presence.</em></h3>
+            <p>From a business card that feels right in the hand to packaging that earns a second look, the finish is part of the message.</p>
+          </div>
+
+          <div className={styles.productContent}>
+            <div className={styles.productGallery}>
+              <figure>
+                <Image src="/assets/carbon-packaging-editorial.png" alt="Custom boxes, paper bags, cards and labels arranged on a dark studio surface" fill sizes="(max-width: 700px) 50vw, 25vw" />
+                <figcaption>Packaging boxes</figcaption>
+              </figure>
+              <figure>
+                <Image src="/assets/food-packaging.jpg" alt="Paper food packaging and takeaway bags" fill sizes="(max-width: 700px) 50vw, 25vw" />
+                <figcaption>Food packaging</figcaption>
+              </figure>
+            </div>
+
+            <div className={styles.productList}>
+              {products.map((product) => (
+                <Link key={product} href="/contact">
+                  <span>{product}</span>
+                  <span aria-hidden="true">↗</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,106 +1,56 @@
-"use client";
-
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import Link from "next/link";
 import styles from "./Footer.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const services = [
+  "Commercial printing",
+  "Packaging products",
+  "Digital & UV printing",
+  "Gift & promotional items",
+];
+
+const socials = [
+  { label: "Instagram", href: "https://www.instagram.com/carbonprintingpress?cplk=MW1jdXJ1YTV1ZjZleQ%3D%3D&utm_source=qr" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/carbon-printing-press-llc/" },
+  { label: "Facebook", href: "https://www.facebook.com/share/1drPkkyfKe/?mibextid=wwXIfr" },
+];
 
 export default function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    // Bending animation entering view (footer reveals from bottom)
-    gsap.fromTo(bgRef.current, 
-      { clipPath: "inset(0% 2.5% 0% 2.5% round 48px 48px 0px 0px)" },
-      {
-        clipPath: "inset(0% 0% 0% 0% round 0px 0px 0px 0px)",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        }
-      }
-    );
-  }, { scope: footerRef });
-
   return (
-    <footer className={styles.footer} ref={footerRef}>
-      <div className={styles.bg} ref={bgRef}></div>
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+    <footer className={styles.footer}>
+      <div className="container">
         <div className={styles.top}>
           <div className={styles.brand}>
-            <h2 className="text-h2">Agency.</h2>
-            <p className={styles.brandDesc}>
-              Building the next generation of SaaS products.
-            </p>
+            <Image src="/assets/carbon-logo.png" alt="Carbon Printing Press LLC" width={210} height={158} className={styles.logo} />
+            <p>Print and packaging solutions made in Sharjah for brands across the UAE.</p>
           </div>
-          
-          <div className={styles.linksContainer}>
-            <div className={styles.col}>
-              <h4>Services</h4>
-              <ul>
-                <li><a href="#">UI/UX Design</a></li>
-                <li><a href="#">Web App Dev</a></li>
-                <li><a href="#">Mobile App Dev</a></li>
-                <li><a href="#">Branding</a></li>
-              </ul>
+
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <h2>Explore</h2>
+              <Link href="/about">About us</Link>
+              <Link href="/services">Services</Link>
+              <Link href="/#process">Our process</Link>
+              <Link href="/contact">Contact us</Link>
             </div>
-            <div className={styles.col}>
-              <h4>Quick Links</h4>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Process</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Careers</a></li>
-              </ul>
+            <div className={styles.column}>
+              <h2>Services</h2>
+              {services.map((service) => <Link key={service} href="/services">{service}</Link>)}
             </div>
-            <div className={styles.col}>
-              <h4>Socials</h4>
-              <ul>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Twitter (X)</a></li>
-                <li><a href="#">Dribbble</a></li>
-                <li><a href="#">Instagram</a></li>
-              </ul>
+            <div className={styles.column}>
+              <h2>Connect</h2>
+              {socials.map((social) => <Link key={social.label} href={social.href} target="_blank" rel="noreferrer">{social.label} ↗</Link>)}
+              <Link href="mailto:sales@carbonprintstore.com">sales@carbonprintstore.com</Link>
+              <Link href="tel:+971563766467">+971 5 6376 6467</Link>
+              <Link href="https://wa.me/971563766467" target="_blank" rel="noreferrer">WhatsApp ↗</Link>
+              <Link href="https://www.carbonprintstore.com" target="_blank" rel="noreferrer">www.carbonprintstore.com</Link>
             </div>
           </div>
         </div>
 
-        <div className={styles.divider}></div>
-
         <div className={styles.bottom}>
-          <div className={styles.locations}>
-            <div className={styles.location}>
-              <span className={styles.flag}>🇺🇸</span>
-              <div>
-                <h5>New York</h5>
-                <p>123 Tech Ave, Suite 400</p>
-              </div>
-            </div>
-            <div className={styles.location}>
-              <span className={styles.flag}>🇦🇪</span>
-              <div>
-                <h5>Dubai</h5>
-                <p>Internet City, Building 9</p>
-              </div>
-            </div>
-            <div className={styles.location}>
-              <span className={styles.flag}>🇸🇦</span>
-              <div>
-                <h5>Riyadh</h5>
-                <p>King Abdullah Financial District</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.copyright}>
-            &copy; {new Date().getFullYear()} Agency. All rights reserved.
-          </div>
+          <span>© {new Date().getFullYear()} Carbon Printing Press LLC. All rights reserved.</span>
+          <span>Sharjah · UAE</span>
         </div>
       </div>
     </footer>

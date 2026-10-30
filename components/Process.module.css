@@ -1,147 +1,91 @@
 .process {
-  padding: var(--section-padding);
-  position: relative;
+  background: var(--paper-deep);
 }
 
-.bg {
-  position: absolute;
-  inset: 0;
-  background-color: var(--color-white);
-  z-index: 0;
-  transform-origin: center center;
-}
-
-.containerWrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.heading {
+  max-width: 700px;
 }
 
 .timeline {
-  display: flex;
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 5rem;
+  padding: 0;
+  list-style: none;
 }
 
-.lineTrack {
-  width: 40px;
-  flex-shrink: 0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.line {
-  width: 4px;
-  height: 100%;
-  background-color: #fce7f3; /* very light pink/red */
-}
-
-.dot {
+.timeline::before {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--color-accent-purple); /* or red */
-  box-shadow: 0 0 0 8px rgba(139, 92, 246, 0.2);
-}
-
-.steps {
-  flex: 1;
-  padding-left: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 120px;
-  padding-bottom: 80px;
+  top: 0.45rem;
+  right: 10%;
+  left: 10%;
+  height: 1px;
+  background: var(--line);
+  content: "";
 }
 
 .step {
-  display: flex;
-  align-items: center;
-  gap: 40px;
+  position: relative;
+  padding: 0 1.1rem;
 }
 
-.stepContent {
-  flex: 1;
+.marker {
+  position: relative;
+  z-index: 1;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-bottom: 2rem;
+  border: 3px solid var(--paper-deep);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px var(--ink);
 }
 
-.stepLabel {
-  font-weight: 700;
-  color: var(--color-accent-purple);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.875rem;
+.stepBody h3 {
+  max-width: 10rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.stepContent h3 {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  font-weight: 800;
-}
-
-.stepContent p {
-  color: var(--color-text-secondary);
-  font-size: 1.1rem;
+.stepBody p {
+  max-width: 12rem;
+  margin-top: 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
   line-height: 1.6;
 }
 
-.stepMockup {
-  flex: 1;
-}
+@media (max-width: 850px) {
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    margin-top: 3.5rem;
+  }
 
-.placeholderBox {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background-color: var(--color-black);
-  border-radius: var(--radius-card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-white);
-  font-weight: 600;
-  font-size: 1.25rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
+  .timeline::before {
+    top: 0.45rem;
+    bottom: 0.45rem;
+    left: 0.45rem;
+    width: 1px;
+    height: auto;
+  }
 
-@media (max-width: 768px) {
   .step {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 0.9rem minmax(0, 1fr);
+    gap: 1.35rem;
+    padding: 0;
   }
-  .stepMockup {
-    width: 100%;
-  }
-  .lineTrack {
-    display: none;
-  }
-  .steps {
-    padding-left: 0;
-    gap: 80px;
-  }
-}
 
-@media (max-width: 480px) {
-  .steps {
-    gap: 48px;
+  .marker {
+    margin-bottom: 0;
   }
-  .stepContent h3 {
-    font-size: 1.5rem;
-  }
-  .placeholderBox {
-    font-size: 1rem;
-    padding: 16px;
-    text-align: center;
+
+  .stepBody h3,
+  .stepBody p {
+    max-width: 34rem;
   }
 }

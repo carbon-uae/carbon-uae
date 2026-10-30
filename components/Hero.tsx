@@ -1,71 +1,47 @@
-"use client";
-
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import Link from "next/link";
 import styles from "./Hero.module.css";
 
-gsap.registerPlugin(useGSAP);
-
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-anim",
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-      }
-    );
-  }, { scope: heroRef });
-
   return (
-    <section className={styles.hero} ref={heroRef}>
+    <section id="home" className={styles.hero} aria-labelledby="hero-title">
+      <div className={styles.heroBackground} aria-hidden="true">
+        <Image src="/assets/carbon-press-editorial.png" alt="" fill priority sizes="100vw" className={styles.backgroundImage} />
+        <div className={styles.backgroundOverlay} />
+      </div>
+
       <div className="container">
-        <div className={`${styles.content} hero-anim`}>
-          <div className={styles.badge}>Teams Across USA, UAE & KSA</div>
-          
-          <h1 className="text-massive hero-anim">
-            Product Design & Dev Agency For <span className="text-italic">SaaS</span> Companies
+        <div className={styles.content}>
+          <p className={styles.brandLine}>CARBON PRINTING PRESS LLC / SHARJAH, UAE</p>
+          <h1 id="hero-title">
+            Premium Printing &amp; Packaging <em>Solutions in UAE</em>
           </h1>
-          
-          <div className={`${styles.socialProof} hero-anim`}>
-            <div className={styles.stars}>★★★★★</div>
-            <span>4.9/5 on Clutch & Trustpilot</span>
-          </div>
-          
-          <p className="subtitle hero-anim">
-            We build fast, scalable, and beautifully designed web applications 
-            that help your business convert and retain users.
+          <p className={styles.description}>
+            Delivering high-quality Commercial, Gift items, Uniform, Digital, Screen and Packaging Printing solutions with modern technology and fast turnaround.
           </p>
-          
-          <div className={`${styles.ctas} hero-anim`}>
-            <button className="pill-btn primary">Book a Free 30-Min Call</button>
-            <button className="pill-btn secondary">
-              <span style={{ marginRight: '8px' }}>💬</span> Chat on WhatsApp
-            </button>
+          <div className={styles.actions}>
+            <Link href="https://wa.me/971563766467?text=Hello%20Carbon%20Printing%20Press%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noreferrer" className="pill-button primary">
+              Request a Quote <span aria-hidden="true">↗</span>
+            </Link>
+            <Link href="https://wa.me/971563766467" target="_blank" rel="noreferrer" className="pill-button light">
+              WhatsApp Us <span aria-hidden="true">↗</span>
+            </Link>
           </div>
+          <div className={styles.trustRow}>
+            <span>10+ Years Experience</span>
+            <span>5,000+ Projects</span>
+            <span>500+ Happy Clients</span>
+          </div>
+        </div>
+
+        <div className={styles.imageNote}>
+          <span className={styles.imageNoteDot} />
+          <span>Colour selection / first proof</span>
         </div>
       </div>
 
-      <div className={styles.marqueeContainer}>
-        <div className={styles.marquee}>
-          <span>ACME Corp</span>
-          <span>GlobalTech</span>
-          <span>InnovateSaaS</span>
-          <span>CloudSync</span>
-          <span>NextLevel</span>
-          <span>DataFlow</span>
-          <span>ACME Corp</span>
-          <span>GlobalTech</span>
-          <span>InnovateSaaS</span>
-          <span>CloudSync</span>
-        </div>
+      <div className={styles.scrollCue} aria-hidden="true">
+        <span className={styles.scrollLine} />
       </div>
     </section>
   );

@@ -1,115 +1,102 @@
-"use client";
-
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import AnimatedStat from "./AnimatedStat";
 import styles from "./About.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const strengths = [
+  "Advanced printing technology",
+  "Professional customer support",
+  "Fast production and delivery",
+  "High-quality finishing",
+  "Competitive pricing",
+];
+
+const highlights = [
+  "High-quality printing",
+  "Fast turnaround",
+  "Modern machinery",
+  "Competitive pricing",
+  "Custom packaging solutions",
+  "Professional team",
+];
+
+const stats = [
+  { target: 10, suffix: "+", label: "Years experience" },
+  { target: 5000, suffix: "+", label: "Projects completed" },
+  { target: 500, suffix: "+", label: "Happy clients" },
+];
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const leftRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 901px)", () => {
-      // Pin the left side while scrolling through the right side
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: leftRef.current,
-      });
-
-      // Animate the dot down the vertical line
-      gsap.to(dotRef.current, {
-        y: () => {
-          const sectionHeight = sectionRef.current?.offsetHeight || 0;
-          return sectionHeight - 50; // Adjust for dot size
-        },
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-        },
-      });
-    });
-
-    // Bending animation entering view
-    gsap.fromTo(bgRef.current, 
-      { clipPath: "inset(0% 2.5% 0% 2.5% round 48px)" },
-      {
-        clipPath: "inset(0% 0% 0% 0% round 0px)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        }
-      }
-    );
-
-    // Bending animation leaving view
-    gsap.fromTo(bgRef.current, 
-      { clipPath: "inset(0% 0% 0% 0% round 0px)" },
-      {
-        clipPath: "inset(0% 2.5% 0% 2.5% round 48px)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: true,
-        }
-      }
-    );
-
-    return () => mm.revert();
-  }, { scope: sectionRef });
-
   return (
-    <section id="about" className={styles.about} ref={sectionRef}>
-      <div className={styles.bg} ref={bgRef}></div>
-      <div className={styles.container}>
-        <div className={styles.left} ref={leftRef}>
-          <div className={styles.stickyContent}>
-            <h2 className="text-h2">
-              Get A Full <span className="text-italic text-accent-blue">SaaS</span> Design Team...
+    <section id="about" className={`${styles.about} section-shell`} aria-labelledby="about-title">
+      <div className="container">
+        <div className={styles.intro}>
+          <div>
+            <h2 id="about-title" className="section-title">
+              A sharper finish for <em>every idea.</em>
             </h2>
-            <p className={styles.description}>
-              Instead of hiring freelancers or an expensive in-house team, get a dedicated squad of designers and developers ready to execute your vision fast.
-            </p>
-            <button className="pill-btn primary">See Our Process</button>
           </div>
-        </div>
-        
-        <div className={styles.centerTrack}>
-          <div className={styles.line}></div>
-          <div className={styles.dot} ref={dotRef}></div>
+          <p className="section-copy">
+            From the first colour proof to the final delivery, Carbon Printing Press brings careful craft, modern machinery and dependable service together under one roof.
+          </p>
         </div>
 
-        <div className={styles.right}>
-          <div className={styles.benefit}>
-            <h3>Fast SaaS Product Builds</h3>
-            <p>Go from idea to prototype in weeks, not months. We specialize in rapid execution without compromising quality.</p>
+        <div className={styles.featureGrid}>
+          <div className={styles.imageFrame}>
+            <Image
+              src="/assets/color-design.jpg"
+              alt="Designer comparing printed colour swatches"
+              fill
+              sizes="(max-width: 700px) 100vw, 50vw"
+              className={styles.image}
+            />
+            <div className={styles.imageCaption}>Precision from concept to print</div>
           </div>
-          <div className={styles.benefit}>
-            <h3>Dedicated Product Team</h3>
-            <p>Work with a hand-picked team that acts as an extension of your company. Full transparency and daily updates.</p>
+
+          <div className={styles.featureCopy}>
+            <p className={styles.lead}>Built for brands that care about how they show up.</p>
+            <p className={styles.bodyCopy}>
+              Our team combines professional customer support with a fast, detail-led production process. The result is packaging and print that feels considered, consistent and ready for the real world.
+            </p>
+            <div className={styles.statRow}>
+              {stats.map((stat) => (
+                <AnimatedStat key={stat.label} {...stat} />
+              ))}
+            </div>
+            <ul className={styles.strengthList}>
+              {strengths.map((strength) => (
+                <li key={strength}>{strength}</li>
+              ))}
+            </ul>
           </div>
-          <div className={styles.benefit}>
-            <h3>Scalable Architecture</h3>
-            <p>We build with modern frameworks like Next.js and React so your product handles scale beautifully.</p>
+        </div>
+
+        <div className={styles.highlights}>
+          {highlights.map((highlight) => (
+            <div key={highlight} className={styles.highlight}>
+              <p>{highlight}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.reel}>
+          <div className={styles.reelIntro}>
+            <h3>Colour, pressure, <em>precision.</em></h3>
+            <p>A closer look at the production floor behind every considered finish.</p>
           </div>
-          <div className={styles.benefit}>
-            <h3>Premium UI/UX</h3>
-            <p>User experience is everything in SaaS. We craft interfaces that reduce churn and delight your customers.</p>
+          <div className={styles.reelFrame}>
+            <video
+              className={styles.reelVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/assets/printing-press.jpg"
+              aria-label="Carbon Printing Press production reel"
+            >
+              <source src="/assets/cpp-video.mp4" type="video/mp4" />
+              Your browser does not support the production reel.
+            </video>
           </div>
         </div>
       </div>

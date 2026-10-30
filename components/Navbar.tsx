@@ -1,45 +1,77 @@
 "use client";
 
-import Link from 'next/link';
-import { useState } from 'react';
-import styles from './Navbar.module.css';
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./Navbar.module.css";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "About us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact us", href: "/contact" },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className={styles.navbar}>
-      <Link href="/" className={styles.logo}>
-        Tem<span>Six</span>
-      </Link>
-      
-      <div className={styles.navLinks}>
-        <Link href="#about" className={styles.navLink}>About</Link>
-        <Link href="#services" className={styles.navLink}>Services</Link>
-        <Link href="#process" className={styles.navLink}>Process</Link>
-      </div>
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
+      <nav className={styles.navbar} aria-label="Primary navigation">
+        <Link href="/" className={styles.logoLink} aria-label="Carbon Printing Press home">
+          <Image
+            src="/assets/carbon-logo.png"
+            alt=""
+            width={170}
+            height={127}
+            className={styles.logo}
+            priority
+          />
+        </Link>
 
-      <div className={styles.cta}>
-        {/* <Link href="#contact" className="pill-btn primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
-          Let&apos;s Talk
-        </Link> */}
-        
-        <button 
-          className={`${styles.hamburger} ${isOpen ? styles.open : ''}`} 
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+        <div className={styles.desktopLinks}>
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className={styles.navLink}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        <Link href="https://wa.me/971563766467?text=Hello%20Carbon%20Printing%20Press%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noreferrer" className={`${styles.quoteButton} pill-button primary`}>
+          Request a quote
+        </Link>
+
+        <button
+          type="button"
+          className={`${styles.menuButton} ${isOpen ? styles.menuButtonOpen : ""}`}
+          onClick={() => setIsOpen((open) => !open)}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
         </button>
-      </div>
+      </nav>
 
-      <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
-        <Link href="#about" className={styles.mobileLink} onClick={() => setIsOpen(false)}>About</Link>
-        <Link href="#services" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Services</Link>
-        <Link href="#process" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Process</Link>
+      <div id="mobile-navigation" className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ""}`}>
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className={styles.mobileLink} onClick={() => setIsOpen(false)}>
+            {link.label}
+          </Link>
+        ))}
+        <Link href="https://wa.me/971563766467?text=Hello%20Carbon%20Printing%20Press%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noreferrer" className={`${styles.mobileQuote} pill-button primary`} onClick={() => setIsOpen(false)}>
+          Request a quote
+        </Link>
       </div>
-    </nav>
+    </header>
   );
 }

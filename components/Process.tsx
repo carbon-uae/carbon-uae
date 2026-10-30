@@ -1,154 +1,49 @@
-"use client";
-
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import styles from "./Process.module.css";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+const steps = [
+  {
+    title: "Inquiry & Quotation",
+    description: "Tell us what you need, where it will be used and when you need it. We’ll recommend the right route and share a clear quotation.",
+  },
+  {
+    title: "Design & Sample Approval",
+    description: "We align artwork, materials and finishing details, then move forward once your sample and specifications are approved.",
+  },
+  {
+    title: "Printing & Production",
+    description: "Our production team turns the approved direction into consistent, high-quality print using modern machinery.",
+  },
+  {
+    title: "Delivery",
+    description: "Finished work is checked, packed and delivered with the timing and care your project deserves.",
+  },
+  {
+    title: "Customer Feedback",
+    description: "We stay close after delivery, learn from the experience and keep your next order even smoother.",
+  },
+];
 
 export default function Process() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<HTMLDivElement[]>([]);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 1px)", () => {
-      // Animate dot down the line
-      gsap.to(dotRef.current, {
-        y: () => (lineRef.current?.offsetHeight || 0) - 20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-        },
-      });
-
-      // Animate each step content
-      stepsRef.current.forEach((step) => {
-        gsap.fromTo(
-          step,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: step,
-              start: "top center+=100", // triggers when element is slightly below center
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    });
-
-    // Bending animation entering view
-    gsap.fromTo(bgRef.current, 
-      { clipPath: "inset(0% 2.5% 0% 2.5% round 48px)" },
-      {
-        clipPath: "inset(0% 0% 0% 0% round 0px)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "top top",
-          scrub: true,
-        }
-      }
-    );
-
-    // Bending animation leaving view
-    gsap.fromTo(bgRef.current, 
-      { clipPath: "inset(0% 0% 0% 0% round 0px)" },
-      {
-        clipPath: "inset(0% 2.5% 0% 2.5% round 48px)",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: true,
-        }
-      }
-    );
-
-    return () => mm.revert();
-  }, { scope: sectionRef });
-
-  const addToSteps = (el: HTMLDivElement | null) => {
-    if (el && !stepsRef.current.includes(el)) {
-      stepsRef.current.push(el);
-    }
-  };
-
   return (
-    <section id="process" className={styles.process} ref={sectionRef}>
-      <div className={styles.bg} ref={bgRef}></div>
-      <div className={`${styles.containerWrapper} container`}>
-        <div className={styles.header}>
-          <h2 className="text-h2 text-italic">Our Process</h2>
-          <p className="subtitle">How we turn ideas into reality, fast.</p>
+    <section id="process" className={`${styles.process} section-shell`} aria-labelledby="process-title">
+      <div className="container">
+        <div className={styles.heading}>
+          <h2 id="process-title" className="section-title">
+            From brief to <em>beautifully finished.</em>
+          </h2>
         </div>
 
-        <div className={styles.timeline}>
-          <div className={styles.lineTrack} ref={lineRef}>
-            <div className={styles.line}></div>
-            <div className={styles.dot} ref={dotRef}></div>
-          </div>
-
-          <div className={styles.steps}>
-            
-            {/* Step 1 */}
-            <div className={styles.step} ref={addToSteps}>
-              <div className={styles.stepContent}>
-                <div className={styles.stepLabel}>Step 1: Plan</div>
-                <h3>Discovery & Wireframing</h3>
-                <p>We dive deep into your product requirements, mapping out user journeys and low-fidelity wireframes.</p>
+        <ol className={styles.timeline}>
+          {steps.map((step) => (
+            <li key={step.title} className={styles.step}>
+              <div className={styles.marker} aria-hidden="true" />
+              <div className={styles.stepBody}>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </div>
-              <div className={styles.stepMockup}>
-                <div className={styles.placeholderBox}>
-                  Wireframe Mockup
-                </div>
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className={styles.step} ref={addToSteps}>
-              <div className={styles.stepContent}>
-                <div className={styles.stepLabel}>Step 2: Structure</div>
-                <h3>UI/UX Design</h3>
-                <p>Establishing the visual language. We apply high-end aesthetics tailored for SaaS conversion.</p>
-              </div>
-              <div className={styles.stepMockup}>
-                <div className={styles.placeholderBox} style={{backgroundColor: '#0ea5e9'}}>
-                  UI Design Mockup
-                </div>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className={styles.step} ref={addToSteps}>
-              <div className={styles.stepContent}>
-                <div className={styles.stepLabel}>Step 3: Build</div>
-                <h3>Frontend Engineering</h3>
-                <p>Pixel-perfect implementation using Next.js, React, and seamless GSAP animations.</p>
-              </div>
-              <div className={styles.stepMockup}>
-                <div className={styles.placeholderBox} style={{backgroundColor: '#f97316'}}>
-                  Code / App Mockup
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
