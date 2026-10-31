@@ -108,7 +108,7 @@
     position              : relative;
     z-index               : 1;
     display               : grid;
-    grid-template-columns : repeat(4, 1fr);
+    grid-template-columns : repeat(3, 1fr);
 }
 .hp-stat {
     padding      : 52px 28px;
