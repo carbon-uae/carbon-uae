@@ -69,12 +69,12 @@ const services = [
     { img: '/assets/generated-commercial-printing.webp', title: 'Commercial Printing', desc: 'Professional printing for brochures, flyers, business cards, reports and branded materials.' },
     { img: '/assets/generated-packaging-boxes.webp', title: 'Packaging Products', desc: 'Custom packaging products with high-quality printing and finishing for retail and gifting.' },
     { img: '/assets/generated-large-format-posm.webp', title: 'Large Format Printing', desc: 'High-impact printing for displays, banners, posters and branded environments.' },
-    { img: '/assets/generated-digital-uv-printing.webp', title: 'Screen Printing', desc: 'Durable screen printing for promotional products, uniforms and custom branding.' },
+    { img: '/assets/generated-screen-printing.webp', title: 'Screen Printing', desc: 'Durable screen printing for promotional products, uniforms and custom branding.' },
     { img: '/assets/generated-digital-uv-printing.webp', title: 'Digital & UV Printing', desc: 'Precise digital and UV printing with vibrant colour, sharp detail and fast turnaround.' },
     { img: '/assets/generated-food-packaging.webp', title: 'Flexible Packaging', desc: 'Flexible food and product packaging designed for practical presentation and dependable protection.' },
-    { img: '/assets/generated-large-format-posm.webp', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
+    { img: '/assets/generated-posm-display.webp', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
     { img: '/assets/generated-promotional-products.webp', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
-    { img: '/assets/generated-large-format-posm.webp', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
+    { img: '/assets/generated-signage-branding.webp', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
 ];
 
 const stats = [

@@ -29,7 +29,7 @@ const useReveal = () => {
 
 const products = [
     {
-        img: '/assets/generated-commercial-printing.webp',
+        img: '/assets/generated-business-cards.webp',
         title: ['Luxury ', 'Business Cards'],
         desc: 'Premium business cards with crisp detail, carefully selected stocks and high-quality finishing that represent your brand with confidence.',
         icon: <FaMagic />,
@@ -123,7 +123,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/generated-commercial-printing.webp',
+        img: '/assets/generated-flyers-brochures.webp',
         title: ['Professional ', 'Flyers & Brochures'],
         desc: 'Marketing print that explains your offer clearly, presents your products beautifully and gives your sales team a polished tool to share.',
         icon: <FaBolt />,
@@ -137,7 +137,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/generated-stickers-labels.webp',
+        img: '/assets/generated-product-labels-tags.webp',
         title: ['Product ', 'Labels & Tags'],
         desc: 'Clear labels and tags that support product information, pricing, packaging and brand recognition across your customer experience.',
         icon: <FaShieldAlt />,
