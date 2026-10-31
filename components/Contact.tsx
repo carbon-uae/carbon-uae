@@ -3,6 +3,7 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 import Link from "next/link";
+import ArrowUpRight from "./ArrowUpRight";
 import { faqItems } from "../lib/site";
 import styles from "./Contact.module.css";
 
@@ -92,7 +93,7 @@ export default function Contact() {
                 <textarea name="message" rows={5} placeholder="What would you like to print?" required />
               </label>
               <button type="submit" className="pill-button primary">
-                Send enquiry on WhatsApp <span aria-hidden="true">↗</span>
+                Send enquiry on WhatsApp <ArrowUpRight />
               </button>
               {sent && <p className={styles.formStatus} role="status">WhatsApp opened with your enquiry details.</p>}
             </form>
@@ -103,7 +104,7 @@ export default function Contact() {
               <span className={styles.infoLabel}>Visit us</span>
               <p>Sharjah, United Arab Emirates</p>
               <Link href="https://maps.app.goo.gl/C6XjSwDqfDCQMsoi7" target="_blank" rel="noreferrer" className={styles.textLink}>
-                Open in Google Maps ↗
+                Open in Google Maps <ArrowUpRight />
               </Link>
             </div>
             <div className={styles.infoBlock}>

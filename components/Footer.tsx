@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ArrowUpRight from "./ArrowUpRight";
 import styles from "./Footer.module.css";
 
 const services = [
@@ -39,10 +40,10 @@ export default function Footer() {
             </div>
             <div className={styles.column}>
               <h2>Connect</h2>
-              {socials.map((social) => <Link key={social.label} href={social.href} target="_blank" rel="noreferrer">{social.label} ↗</Link>)}
+              {socials.map((social) => <Link key={social.label} href={social.href} target="_blank" rel="noreferrer">{social.label} <ArrowUpRight /></Link>)}
               <Link href="mailto:sales@carbonprintstore.com">sales@carbonprintstore.com</Link>
               <Link href="tel:+971563766467">+971 5 6376 6467</Link>
-              <Link href="https://wa.me/971563766467" target="_blank" rel="noreferrer">WhatsApp ↗</Link>
+              <Link href="https://wa.me/971563766467" target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight /></Link>
               <Link href="https://www.carbonprintstore.com" target="_blank" rel="noreferrer">www.carbonprintstore.com</Link>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ArrowUpRight from "./ArrowUpRight";
 import styles from "./Services.module.css";
 
 const services = [
@@ -94,7 +95,7 @@ export default function Services() {
               <div className={styles.cardContent}>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <Link href="/contact" className={styles.cardCta}>Request a quote <span aria-hidden="true">↗</span></Link>
+                <Link href="/contact" className={styles.cardCta}>Request a quote <ArrowUpRight /></Link>
               </div>
             </article>
           ))}
@@ -122,7 +123,7 @@ export default function Services() {
               {products.map((product) => (
                 <Link key={product} href="/contact">
                   <span>{product}</span>
-                  <span aria-hidden="true">↗</span>
+                  <ArrowUpRight />
                 </Link>
               ))}
             </div>
