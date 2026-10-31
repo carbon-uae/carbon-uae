@@ -43,7 +43,7 @@ export default function About() {
         <div className={styles.featureGrid}>
           <div className={styles.imageFrame}>
             <Image
-              src="/assets/color-design.jpg"
+              src="/assets/color-design.webp"
               alt="Designer comparing printed colour swatches"
               fill
               sizes="(max-width: 700px) 100vw, 50vw"
@@ -91,7 +91,7 @@ export default function About() {
               loop
               playsInline
               preload="metadata"
-              poster="/assets/printing-press.jpg"
+              poster="/assets/printing-press.webp"
               aria-label="Carbon Printing Press production reel"
             >
               <source src="/assets/cpp-video.mp4" type="video/mp4" />

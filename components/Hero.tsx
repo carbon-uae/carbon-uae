@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section id="home" className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroBackground} aria-hidden="true">
-        <Image src="/assets/carbon-press-editorial.png" alt="" fill priority sizes="100vw" className={styles.backgroundImage} />
+        <Image src="/assets/carbon-press-editorial.webp" alt="" fill priority sizes="100vw" className={styles.backgroundImage} />
         <div className={styles.backgroundOverlay} />
       </div>
 

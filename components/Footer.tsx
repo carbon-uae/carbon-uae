@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="container">
         <div className={styles.top}>
           <div className={styles.brand}>
-            <Image src="/assets/carbon-logo.png" alt="Carbon Printing Press LLC" width={210} height={158} className={styles.logo} />
+            <Image src="/assets/carbon-logo.webp" alt="Carbon Printing Press LLC" width={210} height={158} className={styles.logo} />
             <p>Print and packaging solutions made in Sharjah for brands across the UAE.</p>
           </div>
 

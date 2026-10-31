@@ -7,56 +7,56 @@ const services = [
   {
     title: "Commercial Printing",
     description: "Stationery, flyers, brochures and business essentials with a refined finish.",
-    image: "/assets/stationery.jpg",
+    image: "/assets/stationery.webp",
     alt: "Printed stationery and branded paper goods",
     emphasis: true,
   },
   {
     title: "Packaging Products",
     description: "Custom boxes, sleeves and presentation packaging designed around your brand.",
-    image: "/assets/gift-boxes.jpg",
+    image: "/assets/gift-boxes.webp",
     alt: "Premium gift boxes and packaging with ribbon",
   },
   {
     title: "Large Format Printing",
     description: "High-impact visuals for retail, events, interiors and branded environments.",
-    image: "/assets/carbon-press-editorial.png",
+    image: "/assets/carbon-press-editorial.webp",
     alt: "Modern wide-format printing press producing monochrome packaging sheets",
   },
   {
     title: "Screen Printing",
     description: "Durable, tactile print for uniforms, merchandise and brand applications.",
-    image: "/assets/carbon-screen-printing.png",
+    image: "/assets/carbon-screen-printing.webp",
     alt: "Screen-printing frame, ink and textured paper on a production table",
   },
   {
     title: "Digital & UV Printing",
     description: "Crisp short runs, vivid colour and premium detail for campaigns and launches.",
-    image: "/assets/color-design.jpg",
+    image: "/assets/color-design.webp",
     alt: "Designer comparing printed colour swatches",
   },
   {
     title: "Flexible Packaging",
     description: "Practical, polished packaging formats for food, retail and everyday products.",
-    image: "/assets/food-packaging.jpg",
+    image: "/assets/food-packaging.webp",
     alt: "Paper food packaging and takeaway bags",
   },
   {
     title: "Point of Sale Material (POSM)",
     description: "Clear, consistent displays and print touchpoints that help products get noticed.",
-    image: "/assets/carbon-posm-display.png",
+    image: "/assets/carbon-posm-display.webp",
     alt: "Point of sale displays, counter cards and printed promotional stands in a retail setting",
   },
   {
     title: "Gift & Promotional Items",
     description: "Memorable branded pieces that keep your business in your customer’s hands.",
-    image: "/assets/carbon-packaging-editorial.png",
+    image: "/assets/carbon-packaging-editorial.webp",
     alt: "Custom gift boxes, paper bags and promotional print pieces",
   },
   {
     title: "Signage & Branding",
     description: "A consistent visual presence across spaces, campaigns, packaging and collateral.",
-    image: "/assets/carbon-signage-posm.png",
+    image: "/assets/carbon-signage-posm.webp",
     alt: "Retail signage, POS displays and printed tags in a modern showroom",
   },
 ];
@@ -110,11 +110,11 @@ export default function Services() {
           <div className={styles.productContent}>
             <div className={styles.productGallery}>
               <figure>
-                <Image src="/assets/carbon-packaging-editorial.png" alt="Custom boxes, paper bags, cards and labels arranged on a dark studio surface" fill sizes="(max-width: 700px) 50vw, 25vw" />
+                <Image src="/assets/carbon-packaging-editorial.webp" alt="Custom boxes, paper bags, cards and labels arranged on a dark studio surface" fill sizes="(max-width: 700px) 50vw, 25vw" />
                 <figcaption>Packaging boxes</figcaption>
               </figure>
               <figure>
-                <Image src="/assets/food-packaging.jpg" alt="Paper food packaging and takeaway bags" fill sizes="(max-width: 700px) 50vw, 25vw" />
+                <Image src="/assets/food-packaging.webp" alt="Paper food packaging and takeaway bags" fill sizes="(max-width: 700px) 50vw, 25vw" />
                 <figcaption>Food packaging</figcaption>
               </figure>
             </div>

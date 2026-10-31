@@ -28,7 +28,7 @@ export default function Navbar() {
       <nav className={styles.navbar} aria-label="Primary navigation">
         <Link href="/" className={styles.logoLink} aria-label="Carbon Printing Press home">
           <Image
-            src="/assets/carbon-logo.png"
+            src="/assets/carbon-logo.webp"
             alt=""
             width={170}
             height={127}

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     locale: "en_AE",
     url: site.url,
     siteName: site.name,
-    images: ["/assets/carbon-press-editorial.png"],
+    images: ["/assets/carbon-press-editorial.webp"],
   },
   alternates: { canonical: site.url },
   robots: {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CARBON PRINTING PRESS LLC | Premium Printing & Packaging in UAE",
     description: "High-quality printing and packaging solutions from Sharjah, UAE.",
-    images: ["/assets/carbon-press-editorial.png"],
+    images: ["/assets/carbon-press-editorial.webp"],
   },
   icons: {
     icon: "/icon.png",
