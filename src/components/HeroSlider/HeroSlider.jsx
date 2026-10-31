@@ -11,8 +11,8 @@ import './HeroSlider.css';
 
 const slides = [
   {
-    image: '/assets/main-image.jpg',
-    video: '/assets/cpp-video.mp4',
+    image: '/assets/main-image.webp',
+    video: '/assets/cpp-video.webm',
     subtitle: 'Carbon Printing Press LLC',
     title: 'Premium <span>Printing &amp; Packaging</span>',
     description: 'Delivering high-quality commercial, gift item, uniform, digital, screen and packaging printing solutions with modern technology and fast turnaround.',
@@ -20,7 +20,7 @@ const slides = [
     btnHref: 'mailto:sales@carbonprintstore.com'
   },
   {
-    image: '/assets/pantone-designer.jpg',
+    image: '/assets/generated-commercial-printing.webp',
     subtitle: 'Designed for Your Brand',
     title: 'Commercial <span>Printing</span>',
     description: 'From business cards and stationery to brochures, flyers and branded materials, every detail is produced to make a strong impression.',
@@ -28,7 +28,7 @@ const slides = [
     btnHref: '/products'
   },
   {
-    image: '/assets/printing-machine.jpg',
+    image: '/assets/generated-digital-uv-printing.webp',
     subtitle: 'Modern Machinery',
     title: 'Built for <span>Fast Turnaround</span>',
     description: 'Advanced production capabilities, professional support and high-quality finishing for projects of every scale.',
@@ -181,7 +181,7 @@ const HeroSlider = () => {
                 aria-hidden="true"
                 style={{ objectFit: 'cover' }}
               >
-                <source src={slide.video} type="video/mp4" />
+                <source src={slide.video} type="video/webm" />
               </video>
             ) : (
               <motion.div

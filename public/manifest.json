@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "assets/carbon-logo.png",
-      "type": "image/png",
+      "src": "assets/carbon-favicon.webp",
+      "type": "image/webp",
       "sizes": "192x192"
     },
     {
-      "src": "assets/carbon-logo.png",
-      "type": "image/png",
+      "src": "assets/carbon-favicon.webp",
+      "type": "image/webp",
       "sizes": "512x512"
     }
   ],

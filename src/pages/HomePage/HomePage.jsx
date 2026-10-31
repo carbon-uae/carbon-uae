@@ -66,15 +66,15 @@ const CountUp = ({ target, suffix }) => {
 };
 
 const services = [
-    { img: '/assets/pantone-designer.jpg', title: 'Commercial Printing', desc: 'Professional printing for brochures, flyers, business cards, reports and branded materials.' },
-    { img: '/assets/gift-boxes.jpg', title: 'Packaging Products', desc: 'Custom packaging products with high-quality printing and finishing for retail and gifting.' },
-    { img: '/assets/printing-machine.jpg', title: 'Large Format Printing', desc: 'High-impact printing for displays, banners, posters and branded environments.' },
-    { img: '/assets/portfolio-collage.jpg', title: 'Screen Printing', desc: 'Durable screen printing for promotional products, uniforms and custom branding.' },
-    { img: '/assets/main-image.jpg', title: 'Digital & UV Printing', desc: 'Precise digital and UV printing with vibrant colour, sharp detail and fast turnaround.' },
-    { img: '/assets/food-packaging.jpg', title: 'Flexible Packaging', desc: 'Flexible food and product packaging designed for practical presentation and dependable protection.' },
-    { img: '/assets/portfolio-collage.jpg', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
-    { img: '/assets/gift-boxes.jpg', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
-    { img: '/assets/printing-machine.jpg', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
+    { img: '/assets/generated-commercial-printing.webp', title: 'Commercial Printing', desc: 'Professional printing for brochures, flyers, business cards, reports and branded materials.' },
+    { img: '/assets/generated-packaging-boxes.webp', title: 'Packaging Products', desc: 'Custom packaging products with high-quality printing and finishing for retail and gifting.' },
+    { img: '/assets/generated-large-format-posm.webp', title: 'Large Format Printing', desc: 'High-impact printing for displays, banners, posters and branded environments.' },
+    { img: '/assets/generated-digital-uv-printing.webp', title: 'Screen Printing', desc: 'Durable screen printing for promotional products, uniforms and custom branding.' },
+    { img: '/assets/generated-digital-uv-printing.webp', title: 'Digital & UV Printing', desc: 'Precise digital and UV printing with vibrant colour, sharp detail and fast turnaround.' },
+    { img: '/assets/generated-food-packaging.webp', title: 'Flexible Packaging', desc: 'Flexible food and product packaging designed for practical presentation and dependable protection.' },
+    { img: '/assets/generated-large-format-posm.webp', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
+    { img: '/assets/generated-promotional-products.webp', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
+    { img: '/assets/generated-large-format-posm.webp', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
 ];
 
 const stats = [
@@ -109,8 +109,8 @@ const HomePage = () => {
         name: 'CARBON PRINTING PRESS LLC',
         legalName: 'CARBON PRINTING PRESS LLC',
         url: 'https://www.carbonprintstore.com/',
-        logo: 'https://www.carbonprintstore.com/assets/carbon-logo.png',
-        image: 'https://www.carbonprintstore.com/assets/main-image.jpg',
+        logo: 'https://www.carbonprintstore.com/assets/carbon-logo.webp',
+        image: 'https://www.carbonprintstore.com/assets/main-image.webp',
         description: 'High-quality commercial, gift item, uniform, digital, screen and packaging printing solutions in Sharjah, UAE.',
         telephone: '+971563766467',
         email: 'sales@carbonprintstore.com',
@@ -119,6 +119,23 @@ const HomePage = () => {
             addressLocality: 'Sharjah',
             addressCountry: 'AE',
         },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 25.3463,
+            longitude: 55.4209,
+        },
+        hasMap: 'https://www.google.com/maps?q=Sharjah%2C%20UAE',
+        areaServed: [
+            { '@type': 'City', name: 'Sharjah' },
+            { '@type': 'Country', name: 'United Arab Emirates' },
+        ],
+        serviceType: [
+            'Commercial Printing',
+            'Packaging Printing',
+            'Digital and UV Printing',
+            'Large Format Printing',
+            'Signage and Branding',
+        ],
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -132,13 +149,30 @@ const HomePage = () => {
         ],
     };
 
+    const serviceCatalogSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'OfferCatalog',
+        name: 'Carbon Printing Press services',
+        itemListElement: services.map((service, index) => ({
+            '@type': 'Offer',
+            position: index + 1,
+            itemOffered: {
+                '@type': 'Service',
+                name: service.title,
+                description: service.desc,
+                areaServed: { '@type': 'Country', name: 'United Arab Emirates' },
+                provider: { '@id': 'https://www.carbonprintstore.com/#organization' },
+            },
+        })),
+    };
+
     useSeo({
         title: 'Carbon Printing Press LLC | Printing & Packaging Solutions in UAE',
         description: 'Carbon Printing Press LLC delivers high-quality commercial, gift item, uniform, digital, screen and packaging printing solutions in Sharjah, UAE.',
         canonicalUrl: 'https://www.carbonprintstore.com/',
         ogType: 'website',
-        ogImage: 'https://www.carbonprintstore.com/assets/main-image.jpg',
-        schemas: [localBusinessSchema],
+        ogImage: 'https://www.carbonprintstore.com/assets/main-image.webp',
+        schemas: [localBusinessSchema, serviceCatalogSchema],
     });
 
     return (
@@ -193,7 +227,7 @@ const HomePage = () => {
                 <div className="container hp-about-grid">
                     <div className="hp-about-visual reveal">
                         <div className="hp-about-img-frame">
-                            <img src="/assets/portfolio-collage.jpg" alt="Carbon Printing Press printed products" />
+                            <img src="/assets/generated-stationery-branding.webp" alt="Carbon Printing Press printed products" />
                         </div>
                     </div>
                     <div className="hp-about-text reveal">

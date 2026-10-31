@@ -1,7 +1,7 @@
 import { FaStar, FaDiamond } from 'react-icons/fa6';
 import './Marqueebar.css';
 
-const LOGO = '/assets/carbon-logo.png';
+const LOGO = '/assets/carbon-logo.webp';
 
 const items = [
   { icon: 'diamond', text: 'Commercial Printing' },

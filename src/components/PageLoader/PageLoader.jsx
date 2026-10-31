@@ -22,7 +22,7 @@ const PageLoader = () => {
       <div className="loader-content">
         <div className="loader-circle"></div>
         <div className="loader-logo-container">
-          <img src="/assets/carbon-logo.png" alt="Carbon Printing Press LLC" className="loader-logo" />
+          <img src="/assets/carbon-logo.webp" alt="Carbon Printing Press LLC" className="loader-logo" />
         </div>
       </div>
     </div>

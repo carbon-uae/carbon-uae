@@ -57,8 +57,11 @@ export const useSeo = ({ title, description, canonicalUrl, ogType = 'website', o
         updateOgTag('og:description', description);
         updateOgTag('og:url', canonicalUrl);
         updateOgTag('og:type', ogType);
+        updateOgTag('og:site_name', 'Carbon Printing Press LLC');
+        updateOgTag('og:locale', 'en_AE');
         if (ogImage) {
             updateOgTag('og:image', ogImage);
+            updateOgTag('og:image:alt', `${title || 'Carbon Printing Press LLC'} preview image`);
         }
 
         // 5. Update Twitter Card Tags
@@ -76,6 +79,7 @@ export const useSeo = ({ title, description, canonicalUrl, ogType = 'website', o
         updateTwitterTag('twitter:card', 'summary_large_image');
         updateTwitterTag('twitter:title', title);
         updateTwitterTag('twitter:description', description);
+        updateTwitterTag('twitter:site', '@carbonprintingpress');
         if (ogImage) {
             updateTwitterTag('twitter:image', ogImage);
         }

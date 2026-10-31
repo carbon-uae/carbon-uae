@@ -29,7 +29,7 @@ const useReveal = () => {
 
 const products = [
     {
-        img: '/assets/portfolio-collage.jpg',
+        img: '/assets/generated-commercial-printing.webp',
         title: ['Luxury ', 'Business Cards'],
         desc: 'Premium business cards with crisp detail, carefully selected stocks and high-quality finishing that represent your brand with confidence.',
         icon: <FaMagic />,
@@ -42,7 +42,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/gift-boxes.jpg',
+        img: '/assets/generated-packaging-boxes.webp',
         title: ['Custom ', 'Packaging Boxes'],
         desc: 'Printed packaging boxes designed around your product, with strong presentation, practical construction and finishing that elevates the unboxing experience.',
         icon: <FaShieldAlt />,
@@ -56,7 +56,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/food-packaging.jpg',
+        img: '/assets/generated-food-packaging.webp',
         title: ['Printed ', 'Food Packaging'],
         desc: 'Food packaging solutions for cafés, restaurants and food brands, combining clear presentation with dependable everyday performance.',
         icon: <FaShieldAlt />,
@@ -69,7 +69,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/food-packaging.jpg',
+        img: '/assets/generated-shopping-bags.webp',
         title: ['Branded ', 'Shopping Bags'],
         desc: 'Professional shopping bags that carry your products securely while extending your brand presence beyond the store or delivery point.',
         icon: <FaBolt />,
@@ -83,7 +83,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/portfolio-collage.jpg',
+        img: '/assets/generated-promotional-products.webp',
         title: ['Branded ', 'Promotional Products'],
         desc: 'Promotional items made to keep your business visible, useful and memorable for customers, partners and event audiences.',
         icon: <FaMagic />,
@@ -96,7 +96,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/portfolio-collage.jpg',
+        img: '/assets/generated-stationery-branding.webp',
         title: ['Corporate Stationery & ', 'Branding Materials'],
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
         icon: <FaTint />,
@@ -110,7 +110,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/pantone-designer.jpg',
+        img: '/assets/generated-stickers-labels.webp',
         title: ['Custom ', 'Stickers'],
         desc: 'High-quality printed stickers for packaging, products, promotions and brand identification, produced with clear detail and strong colour.',
         icon: <FaMagic />,
@@ -123,7 +123,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/main-image.jpg',
+        img: '/assets/generated-commercial-printing.webp',
         title: ['Professional ', 'Flyers & Brochures'],
         desc: 'Marketing print that explains your offer clearly, presents your products beautifully and gives your sales team a polished tool to share.',
         icon: <FaBolt />,
@@ -137,7 +137,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/pantone-designer.jpg',
+        img: '/assets/generated-stickers-labels.webp',
         title: ['Product ', 'Labels & Tags'],
         desc: 'Clear labels and tags that support product information, pricing, packaging and brand recognition across your customer experience.',
         icon: <FaShieldAlt />,
@@ -184,10 +184,12 @@ const ProductsPage = () => {
         },
         offers: {
             '@type': 'Offer',
-            priceCurrency: 'AED',
-            price: 'Call for Quote',
             availability: 'https://schema.org/InStock',
             url: 'https://www.carbonprintstore.com/products',
+            seller: {
+                '@type': 'Organization',
+                name: 'Carbon Printing Press LLC',
+            },
         },
         provider: {
             '@type': 'LocalBusiness',
@@ -199,6 +201,7 @@ const ProductsPage = () => {
                 addressLocality: 'Sharjah',
                 addressCountry: 'AE',
             },
+            areaServed: { '@type': 'Country', name: 'United Arab Emirates' },
         },
     }));
 
@@ -241,13 +244,22 @@ const ProductsPage = () => {
         ],
     };
 
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.carbonprintstore.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Products & Services', item: 'https://www.carbonprintstore.com/products' },
+        ],
+    };
+
     useSeo({
         title: 'Carbon Printing Press LLC | Products & Services',
         description: 'Explore Carbon Printing Press products and services, including business cards, packaging boxes, food packaging, promotional products, stationery, stickers, brochures, labels and tags.',
         canonicalUrl: 'https://www.carbonprintstore.com/products',
         ogType: 'website',
-        ogImage: 'https://www.carbonprintstore.com/assets/portfolio-collage.jpg',
-        schemas: [...productSchemas, faqSchema],
+        ogImage: 'https://www.carbonprintstore.com/assets/generated-commercial-printing.webp',
+        schemas: [...productSchemas, faqSchema, breadcrumbSchema],
     });
 
     const faqQuestions = faqSchema.mainEntity.map((item) => ({
