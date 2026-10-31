@@ -1,26 +1,26 @@
 import { FaStar, FaDiamond } from 'react-icons/fa6';
 import './Marqueebar.css';
 
-const LOGO = '/assets/carples logo.png';
+const LOGO = '/assets/carbon-logo.png';
 
 const items = [
-  { icon: 'diamond', text: 'Android Upgrade' },
-  { icon: 'star', text: '360° Camera' },
-  { icon: 'diamond', text: 'Premium Seat Covers' },
-  { icon: 'star', text: 'Car Tinting' },
-  { icon: 'diamond', text: 'Upholstery Works' },
-  { icon: 'star', text: 'Alloy Wheels & LED Lights' },
-  { icon: 'diamond', text: 'Sound Horns' },
-  { icon: 'star', text: 'Car Stereo Upgrade' },
-  { icon: 'diamond', text: 'Smart Lock Systems' },
-  { icon: 'star', text: 'Car Batteries' },
+  { icon: 'diamond', text: 'Commercial Printing' },
+  { icon: 'star', text: 'Packaging Products' },
+  { icon: 'diamond', text: 'Large Format Printing' },
+  { icon: 'star', text: 'Digital & UV Printing' },
+  { icon: 'diamond', text: 'Flexible Packaging' },
+  { icon: 'star', text: 'POSM' },
+  { icon: 'diamond', text: 'Gift & Promotion Items' },
+  { icon: 'star', text: 'Signage & Branding' },
+  { icon: 'diamond', text: 'Corporate Stationery' },
+  { icon: 'star', text: 'Labels & Tags' },
 ];
 
 function MarqueeLap({ suffix = '' }) {
   return (
     <>
       <span className="marquee-logo-wrap">
-        <img src={LOGO} alt="Carplex UAE" className="marquee-logo" />
+        <img src={LOGO} alt="Carbon Printing Press LLC" className="marquee-logo" />
       </span>
 
       {items.map(({ icon, text }, i) => (

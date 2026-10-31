@@ -48,7 +48,7 @@ const Navbar = () => {
 
     const handleCall = (e) => {
         e.preventDefault();
-        window.location.href = 'tel:+971502292861';
+        window.location.href = 'tel:+971563766467';
         setTimeout(() => setMenuOpen(false), 150);
     };
 
@@ -65,7 +65,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <motion.div variants={navLinkVariants}>
                     <Link to="/" className="logo" onClick={closeMenu}>
-                        <img src="/assets/carples logo.png" alt="Carplex" className="logo-img" />
+                        <img src="/assets/carbon-logo.png" alt="Carbon Printing Press LLC" className="logo-img" />
                     </Link>
                 </motion.div>
 
@@ -88,7 +88,7 @@ const Navbar = () => {
                         <a href="/#contact" onClick={closeMenu}>Contact</a>
                     </motion.li>
                     <motion.li variants={navLinkVariants}>
-                        <a href="tel:+971502292861" className="nav-cta" onClick={handleCall}>
+                        <a href="tel:+971563766467" className="nav-cta" onClick={handleCall}>
                             <FaPhoneAlt size={13} /> Call Now
                         </a>
                     </motion.li>

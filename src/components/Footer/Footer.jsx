@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebook, FaWhatsapp, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -12,9 +12,9 @@ const Footer = () => {
                 <div className="footer-top">
                     <div className="footer-brand">
                         <Link to="/" className="logo">
-                            <img src="/assets/carples logo.png" alt="Carplex" className="footer-logo-img" />
+                            <img src="/assets/carbon-logo.png" alt="Carbon Printing Press LLC" className="footer-logo-img" />
                         </Link>
-                        <p>Dubai's trusted premium car accessories provider. Transforming rides since 2014 with quality installations and premium products.</p>
+                        <p>Carbon Printing Press LLC delivers high-quality printing, packaging and branding solutions from Sharjah, UAE.</p>
                     </div>
 
                     <div className="footer-top-grid">
@@ -32,21 +32,21 @@ const Footer = () => {
                         <div className="footer-col">
                             <h4>Services</h4>
                             <ul>
-                                <li><Link to="/products">Android Upgrade</Link></li>
-                                <li><Link to="/products">360° Camera System</Link></li>
-                                <li><Link to="/products">Premium Seat Covers</Link></li>
-                                <li><Link to="/products">Premium Car Tinting</Link></li>
-                                <li><Link to="/products">Upholstery Works</Link></li>
+                                <li><Link to="/products">Commercial Printing</Link></li>
+                                <li><Link to="/products">Packaging Products</Link></li>
+                                <li><Link to="/products">Large Format Printing</Link></li>
+                                <li><Link to="/products">Digital &amp; UV Printing</Link></li>
+                                <li><Link to="/products">Flexible Packaging</Link></li>
                             </ul>
 
                             {/* Collapsible extra services */}
                             <div className={`services-extra ${servicesExpanded ? 'services-extra--open' : ''}`}>
                                 <ul>
-                                    <li><Link to="/products">Car Stereo Upgrade</Link></li>
-                                    <li><Link to="/products">Sound Horns</Link></li>
-                                    <li><Link to="/products">Smart Lock Systems</Link></li>
-                                    <li><Link to="/products">Car Batteries</Link></li>
-                                    <li><Link to="/products">LED Lighting Upgrade</Link></li>
+                                    <li><Link to="/products">POSM</Link></li>
+                                    <li><Link to="/products">Gift &amp; Promotion Items</Link></li>
+                                    <li><Link to="/products">Signage &amp; Branding</Link></li>
+                                    <li><Link to="/products">Corporate Stationery</Link></li>
+                                    <li><Link to="/products">Labels &amp; Tags</Link></li>
                                 </ul>
                             </div>
 
@@ -62,10 +62,10 @@ const Footer = () => {
                         <div className="footer-col">
                             <h4>Contact</h4>
                             <ul>
-                                <li><a href="tel:+(04)271 1275"><FaPhoneAlt size={11} /> +(04)271 1275</a></li>
-                                <li><a href="tel:+971502292861"><FaPhoneAlt size={14} /> +971 50 229 2861</a></li>
-                                <li><a href="mailto:carplexdxb@gmail.com"><FaEnvelope size={14} /> carplexdxb@gmail.com</a></li>
-                                <li><span><FaMapMarkerAlt size={14} /> Ras Al Khor, Dubai</span></li>
+                                <li><a href="tel:+971563766467"><FaPhoneAlt size={11} /> +971 5 6376 6467</a></li>
+                                <li><a href="https://wa.me/971563766467"><FaPhoneAlt size={14} /> WhatsApp Us</a></li>
+                                <li><a href="mailto:sales@carbonprintstore.com"><FaEnvelope size={14} /> sales@carbonprintstore.com</a></li>
+                                <li><span><FaMapMarkerAlt size={14} /> Sharjah, UAE</span></li>
                             </ul>
                         </div>
                     </div>
@@ -73,15 +73,15 @@ const Footer = () => {
 
                 <div className="footer-bottom">
                     <div className="footer-copyright">
-                        <p>&copy; {new Date().getFullYear()} Carplex Car Accessories LLC. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} Carbon Printing Press LLC. All rights reserved.</p>
                         <p className="developer-credit">
-                            Developed by <a href="https://suhadigitech.com" target="_blank" rel="noopener noreferrer">Suha Digitech</a>
+                            Developed by <a href="https://www.webexxy.com/" target="_blank" rel="noopener noreferrer">Webexxy</a>
                         </p>
                     </div>
                     <div className="social-links">
-                        <a href="https://www.instagram.com/carplex_accessories?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="social-link" aria-label="Instagram"><FaInstagram /></a>
-                        <a href="https://www.facebook.com/share/18UB5SKYLf/?mibextid=wwXIfr" className="social-link" aria-label="Facebook"><FaFacebook /></a>
-                        <a href="https://wa.me/971502292861" className="social-link" aria-label="WhatsApp"><FaWhatsapp /></a>
+                        <a href="https://www.instagram.com/carbonprintingpress?cplk=MW1jdXJ1YTV1ZjZleQ%3D%3D&utm_source=qr" className="social-link" aria-label="Instagram"><FaInstagram /></a>
+                        <a href="https://www.linkedin.com/company/carbon-printing-press-llc/" className="social-link" aria-label="LinkedIn"><FaLinkedin /></a>
+                        <a href="https://www.facebook.com/share/1drPkkyfKe/?mibextid=wwXIfr" className="social-link" aria-label="Facebook"><FaFacebook /></a>
                     </div>
                 </div>
             </div>

@@ -11,25 +11,29 @@ import './HeroSlider.css';
 
 const slides = [
   {
-    image: '/assets/trusted-auto-upgrades.png',
-    subtitle: 'Dubai\'s Trusted Auto Upgrades',
-    title: 'Precision &amp; <span>Prestige</span>',
-    description: 'Transform your vehicle with our premium range of top-tier accessories. From android systems to custom seat covers.',
-    btnText: 'Explore Collection'
+    image: '/assets/main-image.jpg',
+    video: '/assets/cpp-video.mp4',
+    subtitle: 'Carbon Printing Press LLC',
+    title: 'Premium <span>Printing &amp; Packaging</span>',
+    description: 'Delivering high-quality commercial, gift item, uniform, digital, screen and packaging printing solutions with modern technology and fast turnaround.',
+    btnText: 'Request a Quote',
+    btnHref: 'mailto:sales@carbonprintstore.com'
   },
   {
-    image: '/assets/upholstery-worksa.png',
-    subtitle: 'Luxury Redefined',
-    title: 'Custom <span>upholstery works</span>',
-    description: 'Bespoke designs tailored to your style. Experience the pinnacle of automotive interior craftsmanship.',
-    btnText: 'View Services'
+    image: '/assets/pantone-designer.jpg',
+    subtitle: 'Designed for Your Brand',
+    title: 'Commercial <span>Printing</span>',
+    description: 'From business cards and stationery to brochures, flyers and branded materials, every detail is produced to make a strong impression.',
+    btnText: 'View Services',
+    btnHref: '/products'
   },
   {
-    image: '/assets/Advanced-Technology.png',
-    subtitle: 'Advanced Technology',
-    title: 'Smart <span>Integration</span>',
-    description: 'Stay connected and safe on the road with our cutting-edge 360° cameras and OEM-integrated Android screens.',
-    btnText: 'Upgrade Now'
+    image: '/assets/printing-machine.jpg',
+    subtitle: 'Modern Machinery',
+    title: 'Built for <span>Fast Turnaround</span>',
+    description: 'Advanced production capabilities, professional support and high-quality finishing for projects of every scale.',
+    btnText: 'Start a Project',
+    btnHref: '#contact'
   }
 ];
 
@@ -115,13 +119,23 @@ const SlideContent = ({ slide, isActive }) => {
         dangerouslySetInnerHTML={{ __html: slide.title }}
       />
 
+      <motion.p
+        className="slide-text"
+        variants={btnVariants}
+        initial="initial"
+        animate="animate"
+        key={`description-${slide.subtitle}`}
+      >
+        {slide.description}
+      </motion.p>
+
       <motion.div
         variants={btnVariants}
         initial="initial"
         animate="animate"
         key={`btn-${slide.btnText}`}
       >
-        <a href="#services" className="slide-btn">
+        <a href={slide.btnHref || '#services'} className="slide-btn">
           {slide.btnText} <ArrowRight size={20} />
         </a>
       </motion.div>
@@ -156,16 +170,31 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             {/* ── Animated Background Image (zoom-out) ── */}
-            <motion.div
-              className="parallax-bg"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-              }}
-              variants={bgVariants}
-              initial="initial"
-              animate={activeIndex === index ? 'animate' : 'initial'}
-              key={`bg-${index}-${activeIndex === index ? 'active' : 'idle'}`}
-            />
+            {slide.video ? (
+              <video
+                className="parallax-bg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={slide.image}
+                aria-hidden="true"
+                style={{ objectFit: 'cover' }}
+              >
+                <source src={slide.video} type="video/mp4" />
+              </video>
+            ) : (
+              <motion.div
+                className="parallax-bg"
+                style={{
+                  backgroundImage: `url(${slide.image})`,
+                }}
+                variants={bgVariants}
+                initial="initial"
+                animate={activeIndex === index ? 'animate' : 'initial'}
+                key={`bg-${index}-${activeIndex === index ? 'active' : 'idle'}`}
+              />
+            )}
 
             <div className="slide-overlay"></div>
 

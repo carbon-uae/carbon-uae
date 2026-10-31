@@ -1,17 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-    FaAward, FaShieldAlt,
-    FaBolt, FaStar, FaMapMarkerAlt, FaPhoneAlt,
-    FaClock, FaEnvelope, 
+    FaAward, FaShieldAlt, FaBolt, FaStar, FaBoxOpen, FaUsers,
+    FaMapMarkerAlt, FaPhoneAlt, FaClock, FaEnvelope,
 } from 'react-icons/fa';
 import HeroSlider from '../../components/HeroSlider/HeroSlider';
 import MarqueeBar from '../../components/MarqueeBar/Marqueebar';
 import useSeo from '../../hooks/useSeo';
 import './HomePage.css';
 
-
 const useReveal = () => {
     const ref = useRef(null);
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -25,9 +24,10 @@ const useReveal = () => {
             { threshold: 0.06 }
         );
         const elements = ref.current?.querySelectorAll('.reveal');
-        elements?.forEach((el) => observer.observe(el));
-        return () => elements?.forEach((el) => observer.unobserve(el));
+        elements?.forEach((element) => observer.observe(element));
+        return () => elements?.forEach((element) => observer.unobserve(element));
     }, []);
+
     return ref;
 };
 
@@ -35,6 +35,7 @@ const CountUp = ({ target, suffix }) => {
     const [count, setCount] = useState(0);
     const ref = useRef(null);
     const started = useRef(false);
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -45,45 +46,50 @@ const CountUp = ({ target, suffix }) => {
                     let current = 0;
                     const interval = setInterval(() => {
                         current += increment;
-                        if (current >= target) { setCount(target); clearInterval(interval); }
-                        else setCount(Math.floor(current));
+                        if (current >= target) {
+                            setCount(target);
+                            clearInterval(interval);
+                        } else {
+                            setCount(Math.floor(current));
+                        }
                     }, 1800 / steps);
                 }
             },
             { threshold: 0.3 }
         );
+
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
     }, [target]);
+
     return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
 };
 
-/* tag field removed — badges no longer rendered */
 const services = [
-    { img: '/assets/Android-Upgrade-card.png',  title: 'Android Upgrade',      desc: 'Latest infotainment with GPS, Apple CarPlay, streaming & full touchscreen control.' },
-    { img: '/assets/camera-360.png',       title: '360° Camera System',   desc: "Bird's-eye surround view for safe parking and effortless maneuvering."              },
-    { img: '/assets/seat-covers-a.png',      title: 'Premium Seat Covers',  desc: 'Luxury leather & diamond-stitched custom covers that transform your cabin.'          },
-    { img: '/assets/Upholstery-Works-c.png',  title: 'Upholstery Works',     desc: 'Professional restoration for seats, door panels and interior trim.'                  },
-    { img: '/assets/car-tinting.png',      title: 'Premium Car Tinting',  desc: 'UV & heat-rejecting films for privacy, comfort and style.'                          },
-    { img: '/assets/LED-Lights.png',      title: 'LED Lighting Upgrade',  desc: 'Upgraded look with energy-efficient, premium LED lighting for enhanced visibility and modern style.'                },
-    { img: '/assets/sound-horns.png',      title: 'Sound Horns',          desc: 'Dual-tone & multi-tone horn systems for enhanced audibility and modern style.'        },
-    { img: '/assets/car-stereo.png',       title: 'Car Stereo Upgrade',   desc: 'High-fidelity speakers, subwoofers, and amps for immersive sound.'                   },
-    { img: '/assets/lock-system.png',      title: 'Smart Lock Systems',   desc: 'Keyless entry, alarm features and smart security for maximum protection.'            },
-    { img: '/assets/car-batteries.png',    title: 'Car Batteries',        desc: 'Premium automotive batteries built for all-weather reliability.'                     },
+    { img: '/assets/pantone-designer.jpg', title: 'Commercial Printing', desc: 'Professional printing for brochures, flyers, business cards, reports and branded materials.' },
+    { img: '/assets/gift-boxes.jpg', title: 'Packaging Products', desc: 'Custom packaging products with high-quality printing and finishing for retail and gifting.' },
+    { img: '/assets/printing-machine.jpg', title: 'Large Format Printing', desc: 'High-impact printing for displays, banners, posters and branded environments.' },
+    { img: '/assets/portfolio-collage.jpg', title: 'Screen Printing', desc: 'Durable screen printing for promotional products, uniforms and custom branding.' },
+    { img: '/assets/main-image.jpg', title: 'Digital & UV Printing', desc: 'Precise digital and UV printing with vibrant colour, sharp detail and fast turnaround.' },
+    { img: '/assets/food-packaging.jpg', title: 'Flexible Packaging', desc: 'Flexible food and product packaging designed for practical presentation and dependable protection.' },
+    { img: '/assets/portfolio-collage.jpg', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
+    { img: '/assets/gift-boxes.jpg', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
+    { img: '/assets/printing-machine.jpg', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
 ];
 
 const stats = [
-    { num: 5000, suffix: '+', label: 'Cars Upgraded'    },
-    { num: 50,   suffix: '+', label: 'Premium Products' },
-    { num: 100,  suffix: '%', label: 'Satisfaction'     },
-    { num: 15,   suffix: '+', label: 'Expert Staff'     },
+    { num: 10, suffix: '+', label: 'Years Experience' },
+    { num: 5000, suffix: '+', label: 'Projects Completed' },
+    { num: 500, suffix: '+', label: 'Happy Clients' },
 ];
 
 const features = [
-    { icon: <FaAward />,     label: 'Certified Professionals', sub: 'Factory-trained technicians' },
-    { icon: <FaShieldAlt />, label: 'Warranty Covered',        sub: 'All work fully guaranteed'   },
-    { icon: <FaBolt />,      label: 'Fast Installation',       sub: 'Same-day service available'  },
-    { icon: <FaStar />,      label: 'Premium Quality',         sub: 'Top-grade materials only'    },
+    { icon: <FaAward />, label: 'High Quality Printing', sub: 'Consistent results across every project' },
+    { icon: <FaBolt />, label: 'Fast Turnaround', sub: 'Reliable production and delivery timelines' },
+    { icon: <FaStar />, label: 'Modern Machinery', sub: 'Technology built for precise finishing' },
+    { icon: <FaShieldAlt />, label: 'Competitive Pricing', sub: 'Value without compromising quality' },
+    { icon: <FaBoxOpen />, label: 'Custom Packaging Solutions', sub: 'Made around your product and brand' },
+    { icon: <FaUsers />, label: 'Professional Team', sub: 'Support from brief to final delivery' },
 ];
 
 const HomePage = () => {
@@ -91,77 +97,62 @@ const HomePage = () => {
 
     useEffect(() => {
         if (window.location.hash) {
-            const el = document.querySelector(window.location.hash);
-            if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+            const element = document.querySelector(window.location.hash);
+            if (element) setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100);
         }
     }, []);
 
-    // LocalBusiness / Organization Schema for GEO & Search
     const localBusinessSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://carplexuae.com/#organization",
-        "name": "Carplex Car Accessories LLC",
-        "legalName": "Carplex Car Accessories LLC",
-        "url": "https://carplexuae.com/",
-        "logo": "https://carplexuae.com/assets/carples-logo-top.png",
-        "image": "https://carplexuae.com/assets/interior-design.png",
-        "description": "Premium car accessories shop in Nad Al Hammar, Dubai. Specializing in Android screen upgrades, 360 camera installation, seat covers, custom upholstery, window tinting, and audio upgrades.",
-        "telephone": "+971502292861",
-        "email": "info@carplexuae.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Al Mansoori Building, Shop 04, Nad Al Hammar",
-            "addressLocality": "Dubai",
-            "addressRegion": "Dubai",
-            "addressCountry": "AE"
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        '@id': 'https://www.carbonprintstore.com/#organization',
+        name: 'CARBON PRINTING PRESS LLC',
+        legalName: 'CARBON PRINTING PRESS LLC',
+        url: 'https://www.carbonprintstore.com/',
+        logo: 'https://www.carbonprintstore.com/assets/carbon-logo.png',
+        image: 'https://www.carbonprintstore.com/assets/main-image.jpg',
+        description: 'High-quality commercial, gift item, uniform, digital, screen and packaging printing solutions in Sharjah, UAE.',
+        telephone: '+971563766467',
+        email: 'sales@carbonprintstore.com',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Sharjah',
+            addressCountry: 'AE',
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 25.19,
-            "longitude": 55.35
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: '09:00',
+            closes: '18:00',
         },
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-                "opens": "09:30",
-                "closes": "22:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Friday",
-                "opens": "16:30",
-                "closes": "22:30"
-            }
+        sameAs: [
+            'https://www.instagram.com/carbonprintingpress?cplk=MW1jdXJ1YTV1ZjZleQ%3D%3D&utm_source=qr',
+            'https://www.linkedin.com/company/carbon-printing-press-llc/',
+            'https://www.facebook.com/share/1drPkkyfKe/?mibextid=wwXIfr',
         ],
-        "sameAs": [
-            "https://www.instagram.com/carplex_accessories"
-        ]
     };
 
     useSeo({
-        title: "Carplex Car Accessories | Premium Auto Upgrades in Dubai",
-        description: "Upgrade your ride at Dubai's #1 car accessories shop. We specialize in plug-and-play Android screens, 360° surround-view cameras, custom leather seat covers, full upholstery, heat-rejecting ceramic tinting, and audio upgrades in Nad Al Hammar.",
-        canonicalUrl: "https://carplexuae.com/",
-        ogType: "website",
-        ogImage: "https://carplexuae.com/assets/carplex-logo-top.png",
-        schemas: [localBusinessSchema]
+        title: 'Carbon Printing Press LLC | Printing & Packaging Solutions in UAE',
+        description: 'Carbon Printing Press LLC delivers high-quality commercial, gift item, uniform, digital, screen and packaging printing solutions in Sharjah, UAE.',
+        canonicalUrl: 'https://www.carbonprintstore.com/',
+        ogType: 'website',
+        ogImage: 'https://www.carbonprintstore.com/assets/main-image.jpg',
+        schemas: [localBusinessSchema],
     });
 
     return (
         <div ref={pageRef} className="hp-root">
-
             <HeroSlider />
             <MarqueeBar />
 
             <section className="hp-stats">
                 <div className="hp-stats-inner container">
-                    {stats.map((s, i) => (
-                        <div className="hp-stat reveal" key={i} style={{ '--delay': `${i * 0.1}s` }}>
-                            <div className="hp-stat-num"><CountUp target={s.num} suffix={s.suffix} /></div>
+                    {stats.map((stat, index) => (
+                        <div className="hp-stat reveal" key={stat.label} style={{ '--delay': `${index * 0.1}s` }}>
+                            <div className="hp-stat-num"><CountUp target={stat.num} suffix={stat.suffix} /></div>
                             <div className="hp-stat-bar" />
-                            <div className="hp-stat-label">{s.label}</div>
+                            <div className="hp-stat-label">{stat.label}</div>
                         </div>
                     ))}
                 </div>
@@ -177,20 +168,19 @@ const HomePage = () => {
                     <h2 className="hp-section-heading reveal">Our <em>Services</em></h2>
 
                     <div className="hp-services-grid">
-                        {services.map((svc, i) => (
+                        {services.map((service, index) => (
                             <div
                                 className="hp-svc-card reveal"
-                                key={i}
-                                style={{ '--delay': `${(i % 5) * 0.07}s` }}
+                                key={service.title}
+                                style={{ '--delay': `${(index % 5) * 0.07}s` }}
                             >
-                                {/* No tag badge */}
                                 <div className="hp-svc-img-wrap">
-                                    <img src={svc.img} alt={svc.title} loading="lazy" />
+                                    <img src={service.img} alt={service.title} loading="lazy" />
                                     <div className="hp-svc-overlay" />
                                 </div>
                                 <div className="hp-svc-body">
-                                    <h3 className="hp-svc-title">{svc.title}</h3>
-                                    <p className="hp-svc-desc">{svc.desc}</p>
+                                    <h3 className="hp-svc-title">{service.title}</h3>
+                                    <p className="hp-svc-desc">{service.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -203,33 +193,33 @@ const HomePage = () => {
                 <div className="container hp-about-grid">
                     <div className="hp-about-visual reveal">
                         <div className="hp-about-img-frame">
-                            <img src="/assets/interior-design.png" alt="Carplex workshop" />
+                            <img src="/assets/portfolio-collage.jpg" alt="Carbon Printing Press printed products" />
                         </div>
                     </div>
                     <div className="hp-about-text reveal">
                         <div className="hp-section-eyebrow hp-eyebrow-left">
                             <span className="hp-eyebrow-line" />
-                            <span className="hp-eyebrow-text">Why Carplex</span>
+                            <span className="hp-eyebrow-text">About Carbon</span>
                         </div>
                         <h2 className="hp-section-heading">
-                            Dubai's #1<br /><em>Car Accessories</em><br />Specialist
+                            Printing <em>Possibilities</em><br />for Every Brand
                         </h2>
                         <p>
-                            With over a decade in the UAE automotive market, Carplex has built a
-                            reputation for premium quality, expert installations, and service that
-                            never compromises.
+                            Carbon Printing Press LLC delivers high-quality commercial, gift item, uniform,
+                            digital, screen and packaging printing solutions across the UAE.
                         </p>
                         <p>
-                            Our technicians use only the finest materials and latest technology —
-                            because your car deserves nothing less.
+                            With advanced printing technology, professional customer support, fast production
+                            and delivery, high-quality finishing and competitive pricing, we help every project
+                            make a strong impression.
                         </p>
                         <div className="hp-features-grid">
-                            {features.map((f, i) => (
-                                <div className="hp-feature reveal" key={i} style={{ '--delay': `${i * 0.08}s` }}>
-                                    <div className="hp-feature-icon">{f.icon}</div>
+                            {features.map((feature, index) => (
+                                <div className="hp-feature reveal" key={feature.label} style={{ '--delay': `${index * 0.08}s` }}>
+                                    <div className="hp-feature-icon">{feature.icon}</div>
                                     <div>
-                                        <strong>{f.label}</strong>
-                                        <span>{f.sub}</span>
+                                        <strong>{feature.label}</strong>
+                                        <span>{feature.sub}</span>
                                     </div>
                                 </div>
                             ))}
@@ -245,43 +235,49 @@ const HomePage = () => {
                         <span className="hp-eyebrow-text">Get In Touch</span>
                         <span className="hp-eyebrow-line" />
                     </div>
-                    <h2 className="hp-section-heading reveal">Visit <em>Our Showroom</em></h2>
+                    <h2 className="hp-section-heading reveal">Start Your <em>Next Project</em></h2>
                     <div className="hp-contact-layout">
                         <div className="hp-contact-cards reveal">
                             {[
                                 {
                                     icon: <FaMapMarkerAlt />, title: 'Find Us',
-                                    lines: ['Al Mansoori Building, Shop 04','Nad Al Hmmar, Dubai — UAE','Ras Al Khor, Dubai — UAE'],
+                                    lines: ['Sharjah, UAE'],
                                 },
                                 {
-                                    icon: <FaPhoneAlt />, title: 'Call Us',
-                                    links: [{ href: 'tel:+0042711275', label: '+(04) 271 1275' },{ href: 'tel:+971502292861', label: '+971 50 229 2861' }],
+                                    icon: <FaPhoneAlt />, title: 'Call or WhatsApp',
+                                    links: [
+                                        { href: 'tel:+971563766467', label: '+971 5 6376 6467' },
+                                        { href: 'https://wa.me/971563766467', label: 'WhatsApp Us' },
+                                    ],
                                 },
                                 {
-                                    icon: <FaClock />, title: 'Open Hours',
-                                    lines: ['Sat – Thu: 9:30 AM – 10:00 PM','Friday: 4:30 PM – 10:30 PM'],
+                                    icon: <FaClock />, title: 'Working Hours',
+                                    lines: ['9:00 AM – 6:00 PM'],
                                 },
                                 {
-                                    icon: <FaEnvelope />, title: 'Email',
-                                    links: [{ href: 'mailto:info@carplexuae.com', label: 'info@carplexuae.com' }],
+                                    icon: <FaEnvelope />, title: 'Inquiry Email',
+                                    links: [{ href: 'mailto:sales@carbonprintstore.com', label: 'sales@carbonprintstore.com' }],
                                 },
-                            ].map((item, i) => (
-                                <div className="hp-contact-card" key={i}>
+                            ].map((item) => (
+                                <div className="hp-contact-card" key={item.title}>
                                     <div className="hp-contact-card-icon">{item.icon}</div>
                                     <div className="hp-contact-card-body">
                                         <h4>{item.title}</h4>
-                                        {item.lines?.map((l, j) => <p key={j}>{l}</p>)}
-                                        {item.links?.map((l, j) => <p key={j}><a href={l.href}>{l.label}</a></p>)}
+                                        {item.lines?.map((line) => <p key={line}>{line}</p>)}
+                                        {item.links?.map((link) => (
+                                            <p key={link.href}><a href={link.href}>{link.label}</a></p>
+                                        ))}
                                     </div>
                                 </div>
                             ))}
                         </div>
                         <div className="hp-map reveal">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3611.0!2d55.35!3d25.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDExJzI0LjAiTiA1NcKwMjEnMDAuMCJF!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
-                                allowFullScreen="" loading="lazy"
+                                src="https://www.google.com/maps?q=Sharjah%2C%20UAE&output=embed"
+                                allowFullScreen=""
+                                loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="Carplex location"
+                                title="Carbon Printing Press location in Sharjah"
                             />
                         </div>
                     </div>
