@@ -98,7 +98,6 @@ const products = [
     {
         img: '/assets/generated-stationery-branding-v2.webp',
         title: ['Corporate Stationery & ', 'Branding Materials'],
-        logoOverlay: true,
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
         icon: <FaTint />,
         heading: 'Why It Matters',
@@ -327,14 +326,6 @@ const ProductsPage = () => {
                                 }}
                             >
                                 <img src={product.img} alt={product.title.join('')} loading="lazy" />
-                                {product.logoOverlay && (
-                                    <img
-                                        src="/assets/carbon-logo.webp"
-                                        alt=""
-                                        aria-hidden="true"
-                                        className="product-image-logo"
-                                    />
-                                )}
                             </motion.div>
                             <div className="product-content">
                                 <motion.h2

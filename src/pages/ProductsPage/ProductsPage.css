@@ -91,21 +91,6 @@
     color: var(--accent);
 }
 
-.product-image-logo {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-    width: clamp(96px, 24%, 160px) !important;
-    height: auto !important;
-    object-fit: contain !important;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
-    z-index: 1;
-}
-
-
 .product-content>p {
     color: var(--text-secondary);
     font-size: 16px;
