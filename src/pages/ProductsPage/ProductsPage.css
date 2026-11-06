@@ -22,13 +22,11 @@
     font-size: clamp(36px, 5vw, 56px);
     font-weight: 900;
     margin-bottom: 16px;
+    color: var(--accent);
 }
 
 .page-hero h1 span {
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent);
 }
 
 
@@ -86,13 +84,25 @@
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 16px;
+    color: var(--accent);
 }
 
 .product-content h2 span {
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent);
+}
+
+.product-image-logo {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: clamp(96px, 24%, 160px) !important;
+    height: auto !important;
+    object-fit: contain !important;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+    z-index: 1;
 }
 
 
@@ -128,6 +138,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--accent);
 }
 
 .importance-box ul {
@@ -157,7 +168,8 @@
 
 /* ========== CTA BANNER ========== */
 .cta-banner {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
     border-radius: var(--radius);
     padding: 60px;
     text-align: center;
@@ -182,6 +194,7 @@
     font-weight: 800;
     margin-bottom: 12px;
     position: relative;
+    color: var(--accent);
 }
 
 .cta-banner p {
@@ -316,14 +329,12 @@
     font-weight: 800;
     text-align: center;
     margin-bottom: 44px;
+    color: var(--accent);
 }
 
 .products-faq-heading em {
     font-style: normal;
-    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--accent);
 }
 
 .products-faq-list {

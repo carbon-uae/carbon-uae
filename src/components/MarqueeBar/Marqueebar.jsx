@@ -7,13 +7,13 @@ const items = [
   { icon: 'diamond', text: 'Commercial Printing' },
   { icon: 'star', text: 'Packaging Products' },
   { icon: 'diamond', text: 'Large Format Printing' },
+  { icon: 'star', text: 'Screen Printing' },
   { icon: 'star', text: 'Digital & UV Printing' },
   { icon: 'diamond', text: 'Flexible Packaging' },
   { icon: 'star', text: 'POSM' },
   { icon: 'diamond', text: 'Gift & Promotion Items' },
-  { icon: 'star', text: 'Signage & Branding' },
-  { icon: 'diamond', text: 'Corporate Stationery' },
-  { icon: 'star', text: 'Labels & Tags' },
+  { icon: 'star', text: 'Signage & Outdoor Branding' },
+  { icon: 'diamond', text: 'Custom Apparel & Uniform Printing' },
 ];
 
 function MarqueeLap({ suffix = '' }) {

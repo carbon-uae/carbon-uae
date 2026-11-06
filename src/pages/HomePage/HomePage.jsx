@@ -74,7 +74,8 @@ const services = [
     { img: '/assets/generated-food-packaging.webp', title: 'Flexible Packaging', desc: 'Flexible food and product packaging designed for practical presentation and dependable protection.' },
     { img: '/assets/generated-posm-display.webp', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
     { img: '/assets/generated-promotional-products.webp', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
-    { img: '/assets/generated-signage-branding.webp', title: 'Signage & Branding', desc: 'Consistent signage and branding materials for professional spaces and campaigns.' },
+    { img: '/assets/generated-signage-branding.webp', title: 'Signage & Outdoor Branding', desc: 'Consistent signage and outdoor branding materials for professional spaces and campaigns.' },
+    { img: '/assets/generated-screen-printing.webp', title: 'Custom Apparel & Uniform Printing', desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise.' },
 ];
 
 const stats = [
@@ -131,10 +132,15 @@ const HomePage = () => {
         ],
         serviceType: [
             'Commercial Printing',
-            'Packaging Printing',
-            'Digital and UV Printing',
+            'Packaging Products',
             'Large Format Printing',
-            'Signage and Branding',
+            'Screen Printing',
+            'Digital and UV Printing',
+            'Flexible Packaging',
+            'Point of Sale Material (POSM)',
+            'Gift and Promotion Items',
+            'Signage and Outdoor Branding',
+            'Custom Apparel and Uniform Printing',
         ],
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
@@ -228,6 +234,7 @@ const HomePage = () => {
                     <div className="hp-about-visual reveal">
                         <div className="hp-about-img-frame">
                             <img src="/assets/generated-stationery-branding.webp" alt="Carbon Printing Press printed products" />
+                            <img src="/assets/carbon-logo.webp" alt="Carbon Printing Press LLC logo" className="hp-about-logo" />
                         </div>
                     </div>
                     <div className="hp-about-text reveal">
@@ -239,13 +246,16 @@ const HomePage = () => {
                             Printing <em>Possibilities</em><br />for Every Brand
                         </h2>
                         <p>
-                            Carbon Printing Press LLC delivers high-quality commercial, gift item, uniform,
-                            digital, screen and packaging printing solutions across the UAE.
+                            Carbon Printing Press LLC is a printing and branding solutions provider based in the United Arab Emirates, offering a wide range of commercial printing, packaging, promotional products and customised branding services.
                         </p>
                         <p>
-                            With advanced printing technology, professional customer support, fast production
-                            and delivery, high-quality finishing and competitive pricing, we help every project
-                            make a strong impression.
+                            We believe that every printed product represents a brand. That is why we focus on understanding our customers' requirements and delivering solutions that combine quality, creativity and practical value.
+                        </p>
+                        <p>
+                            Our services cover everything from business stationery and marketing materials to customised packaging, large-format graphics, corporate gifts, signage and apparel.
+                        </p>
+                        <p>
+                            With advanced printing technology, professional customer support, fast production and delivery, high-quality finishing and competitive pricing, we help every project make a strong impression.
                         </p>
                         <div className="hp-features-grid">
                             {features.map((feature, index) => (

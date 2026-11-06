@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebook, FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -35,18 +35,18 @@ const Footer = () => {
                                 <li><Link to="/products">Commercial Printing</Link></li>
                                 <li><Link to="/products">Packaging Products</Link></li>
                                 <li><Link to="/products">Large Format Printing</Link></li>
+                                <li><Link to="/products">Screen Printing</Link></li>
                                 <li><Link to="/products">Digital &amp; UV Printing</Link></li>
-                                <li><Link to="/products">Flexible Packaging</Link></li>
                             </ul>
 
                             {/* Collapsible extra services */}
                             <div className={`services-extra ${servicesExpanded ? 'services-extra--open' : ''}`}>
                                 <ul>
+                                    <li><Link to="/products">Flexible Packaging</Link></li>
                                     <li><Link to="/products">POSM</Link></li>
                                     <li><Link to="/products">Gift &amp; Promotion Items</Link></li>
-                                    <li><Link to="/products">Signage &amp; Branding</Link></li>
-                                    <li><Link to="/products">Corporate Stationery</Link></li>
-                                    <li><Link to="/products">Labels &amp; Tags</Link></li>
+                                    <li><Link to="/products">Signage &amp; Outdoor Branding</Link></li>
+                                    <li><Link to="/products">Custom Apparel &amp; Uniform Printing</Link></li>
                                 </ul>
                             </div>
 
@@ -77,11 +77,6 @@ const Footer = () => {
                         <p className="developer-credit">
                             Developed by <a href="https://www.webexxy.com/" target="_blank" rel="noopener noreferrer">Webexxy</a>
                         </p>
-                    </div>
-                    <div className="social-links">
-                        <a href="https://www.instagram.com/carbonprintingpress?cplk=MW1jdXJ1YTV1ZjZleQ%3D%3D&utm_source=qr" className="social-link" aria-label="Instagram"><FaInstagram /></a>
-                        <a href="https://www.linkedin.com/company/carbon-printing-press-llc/" className="social-link" aria-label="LinkedIn"><FaLinkedin /></a>
-                        <a href="https://www.facebook.com/share/1drPkkyfKe/?mibextid=wwXIfr" className="social-link" aria-label="Facebook"><FaFacebook /></a>
                     </div>
                 </div>
             </div>

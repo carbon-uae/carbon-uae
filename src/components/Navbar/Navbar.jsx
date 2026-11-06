@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaPhoneAlt } from 'react-icons/fa';
+import { FaPhoneAlt, FaInstagram, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Navbar.css';
 
@@ -91,6 +91,37 @@ const Navbar = () => {
                         <a href="tel:+971563766467" className="nav-cta" onClick={handleCall}>
                             <FaPhoneAlt size={13} /> Call Now
                         </a>
+                    </motion.li>
+                    <motion.li variants={navLinkVariants} className="nav-social-item">
+                        <div className="nav-social-links" aria-label="Carbon Printing Press social media">
+                            <a
+                                href="https://www.instagram.com/carbonprintingpress?cplk=MW1jdXJ1YTV1ZjZleQ%3D%3D&utm_source=qr"
+                                className="nav-social-link"
+                                aria-label="Instagram"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaInstagram />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/company/carbon-printing-press-llc/"
+                                className="nav-social-link"
+                                aria-label="LinkedIn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaLinkedin />
+                            </a>
+                            <a
+                                href="https://www.facebook.com/share/1drPkkyfKe/?mibextid=wwXIfr"
+                                className="nav-social-link"
+                                aria-label="Facebook"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FaFacebook />
+                            </a>
+                        </div>
                     </motion.li>
                 </ul>
 

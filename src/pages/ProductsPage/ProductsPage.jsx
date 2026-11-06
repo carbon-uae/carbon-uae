@@ -98,6 +98,7 @@ const products = [
     {
         img: '/assets/generated-stationery-branding.webp',
         title: ['Corporate Stationery & ', 'Branding Materials'],
+        logoOverlay: true,
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
         icon: <FaTint />,
         heading: 'Why It Matters',
@@ -108,6 +109,19 @@ const products = [
             'Supports both established brands and new business launches',
         ],
         reverse: true,
+    },
+    {
+        img: '/assets/generated-screen-printing.webp',
+        title: ['Custom Apparel & ', 'Uniform Printing'],
+        desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise across every customer touchpoint.',
+        icon: <FaShieldAlt />,
+        heading: 'Why It Matters',
+        points: [
+            'Creates a consistent and professional team appearance',
+            'Supports branded uniforms, workwear and promotional apparel',
+            'Uses durable printing suited to regular wear and washing',
+            'Helps customers identify your team quickly and confidently',
+        ],
     },
     {
         img: '/assets/generated-stickers-labels.webp',
@@ -313,6 +327,14 @@ const ProductsPage = () => {
                                 }}
                             >
                                 <img src={product.img} alt={product.title.join('')} loading="lazy" />
+                                {product.logoOverlay && (
+                                    <img
+                                        src="/assets/carbon-logo.webp"
+                                        alt=""
+                                        aria-hidden="true"
+                                        className="product-image-logo"
+                                    />
+                                )}
                             </motion.div>
                             <div className="product-content">
                                 <motion.h2

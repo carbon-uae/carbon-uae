@@ -13,9 +13,10 @@ const slides = [
   {
     image: '/assets/main-image.webp',
     video: '/assets/cpp-video.webm',
-    subtitle: 'Carbon Printing Press LLC',
-    title: 'Premium <span>Printing &amp; Packaging</span>',
-    description: 'Delivering high-quality commercial, gift item, uniform, digital, screen and packaging printing solutions with modern technology and fast turnaround.',
+    kicker: 'Carbon Printing Press LLC',
+    subtitle: 'Solutions Partner',
+    title: 'Premium <span>Printing &amp; Branding</span>',
+    description: 'Delivering High-Quality Commercial, Gift Items, Uniform, Digital, Screen and Packaging Printing Solutions with Modern Technology and Fast Turnaround.',
     btnText: 'Request a Quote',
     btnHref: 'mailto:sales@carbonprintstore.com'
   },
@@ -23,7 +24,7 @@ const slides = [
     image: '/assets/generated-commercial-printing.webp',
     subtitle: 'Designed for Your Brand',
     title: 'Commercial <span>Printing</span>',
-    description: 'From business cards and stationery to brochures, flyers and branded materials, every detail is produced to make a strong impression.',
+    description: 'From Business Cards and Stationery to Brochures, Flyers and Branded Materials, Every Detail is Produced to Make a Strong Impression.',
     btnText: 'View Services',
     btnHref: '/products'
   },
@@ -31,7 +32,7 @@ const slides = [
     image: '/assets/generated-digital-uv-printing.webp',
     subtitle: 'Modern Machinery',
     title: 'Built for <span>Fast Turnaround</span>',
-    description: 'Advanced production capabilities, professional support and high-quality finishing for projects of every scale.',
+    description: 'Advanced Production Capabilities, Professional Support and High-Quality Finishing for Projects of Every Scale.',
     btnText: 'Start a Project',
     btnHref: '#contact'
   }
@@ -100,6 +101,17 @@ const SlideContent = ({ slide, isActive }) => {
 
   return (
     <>
+      {slide.kicker && (
+        <motion.div
+          className="slide-kicker"
+          variants={subtitleVariants}
+          initial="initial"
+          animate="animate"
+          key={`kicker-${slide.kicker}`}
+        >
+          {slide.kicker}
+        </motion.div>
+      )}
       <motion.div
         className="slide-subtitle"
         variants={subtitleVariants}
