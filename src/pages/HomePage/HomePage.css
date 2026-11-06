@@ -309,7 +309,6 @@
     overflow      : hidden;
     border        : 2px solid rgba(239,44,36,0.2);
     aspect-ratio  : 4 / 3;
-    position      : relative;
 }
 .hp-about-img-frame img {
     width      : 100%;
@@ -319,18 +318,6 @@
     transition : transform 0.6s ease;
 }
 
-.hp-about-logo {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-    width: clamp(92px, 20%, 150px);
-    height: auto !important;
-    object-fit: contain !important;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 6px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
-}
 .hp-about-visual:hover .hp-about-img-frame img { transform: scale(1.04); }
 
 .hp-about-text p {

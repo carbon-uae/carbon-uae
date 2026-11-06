@@ -96,7 +96,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/generated-stationery-branding.webp',
+        img: '/assets/generated-stationery-branding-v2.webp',
         title: ['Corporate Stationery & ', 'Branding Materials'],
         logoOverlay: true,
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
@@ -124,7 +124,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/generated-stickers-labels.webp',
+        img: '/assets/generated-stickers-labels-v2.webp',
         title: ['Custom ', 'Stickers'],
         desc: 'High-quality printed stickers for packaging, products, promotions and brand identification, produced with clear detail and strong colour.',
         icon: <FaMagic />,
