@@ -233,7 +233,7 @@ const HomePage = () => {
                 <div className="container hp-about-grid">
                     <div className="hp-about-visual reveal">
                         <div className="hp-about-img-frame">
-                            <img src="/assets/carbon-about-stationery-v2.webp" alt="Carbon-branded notebooks and stationery papers" />
+                            <img src="/assets/carbon-about-stationery-v3.png" alt="Carbon-branded stationery, notebooks and printed papers" />
                         </div>
                     </div>
                     <div className="hp-about-text reveal">
