@@ -278,7 +278,7 @@ const HomePage = () => {
                         <span className="hp-eyebrow-text">Get In Touch</span>
                         <span className="hp-eyebrow-line" />
                     </div>
-                    <h2 className="hp-section-heading reveal">Start Your <em>Next Project</em></h2>
+                    <h2 className="hp-section-heading reveal"><span className="hp-heading-white">Start Your</span> <em>Next Project</em></h2>
                     <div className="hp-contact-layout">
                         <div className="hp-contact-cards reveal">
                             {[

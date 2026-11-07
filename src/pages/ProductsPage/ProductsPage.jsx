@@ -31,6 +31,7 @@ const products = [
     {
         img: '/assets/generated-business-cards.webp',
         title: ['Luxury ', 'Business Cards'],
+        whiteTitleParts: [1],
         desc: 'Premium business cards with crisp detail, carefully selected stocks and high-quality finishing that represent your brand with confidence.',
         icon: <FaMagic />,
         heading: 'Why It Matters',
@@ -44,6 +45,7 @@ const products = [
     {
         img: '/assets/generated-packaging-boxes.webp',
         title: ['Custom ', 'Packaging Boxes'],
+        whiteTitleParts: [0],
         desc: 'Printed packaging boxes designed around your product, with strong presentation, practical construction and finishing that elevates the unboxing experience.',
         icon: <FaShieldAlt />,
         heading: 'Why It Matters',
@@ -58,6 +60,7 @@ const products = [
     {
         img: '/assets/generated-food-packaging.webp',
         title: ['Printed ', 'Food Packaging'],
+        whiteTitleParts: [1],
         desc: 'Food packaging solutions for cafés, restaurants and food brands, combining clear presentation with dependable everyday performance.',
         icon: <FaShieldAlt />,
         heading: 'Why It Matters',
@@ -85,6 +88,7 @@ const products = [
     {
         img: '/assets/generated-promotional-products.webp',
         title: ['Branded ', 'Promotional Products'],
+        whiteTitleParts: [1],
         desc: 'Promotional items made to keep your business visible, useful and memorable for customers, partners and event audiences.',
         icon: <FaMagic />,
         heading: 'Why It Matters',
@@ -97,7 +101,8 @@ const products = [
     },
     {
         img: '/assets/generated-stationery-branding-v2.webp',
-        title: ['Corporate Stationery & ', 'Branding Materials'],
+        title: ['Corporate Stationery', ' & ', 'Branding Materials'],
+        whiteTitleParts: [0],
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
         icon: <FaTint />,
         heading: 'Why It Matters',
@@ -111,7 +116,8 @@ const products = [
     },
     {
         img: '/assets/generated-screen-printing.webp',
-        title: ['Custom Apparel & ', 'Uniform Printing'],
+        title: ['Uniforms & ', 'Custom Apparel'],
+        whiteTitleParts: [1],
         desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise across every customer touchpoint.',
         icon: <FaShieldAlt />,
         heading: 'Why It Matters',
@@ -123,21 +129,9 @@ const products = [
         ],
     },
     {
-        img: '/assets/generated-stickers-labels-v2.webp',
-        title: ['Custom ', 'Stickers'],
-        desc: 'High-quality printed stickers for packaging, products, promotions and brand identification, produced with clear detail and strong colour.',
-        icon: <FaMagic />,
-        heading: 'Why It Matters',
-        points: [
-            'Adds a flexible branded touch to products and packaging',
-            'Supports custom shapes, sizes and artwork',
-            'Useful for labels, seals, promotions and product identification',
-            'Makes small-format branding clear and easy to apply',
-        ],
-    },
-    {
         img: '/assets/generated-flyers-brochures.webp',
-        title: ['Professional ', 'Flyers & Brochures'],
+        title: ['Professional ', 'Flyers', ' & Brochures'],
+        whiteTitleParts: [0, 1],
         desc: 'Marketing print that explains your offer clearly, presents your products beautifully and gives your sales team a polished tool to share.',
         icon: <FaBolt />,
         heading: 'Why It Matters',
@@ -151,7 +145,8 @@ const products = [
     },
     {
         img: '/assets/generated-product-labels-tags.webp',
-        title: ['Product ', 'Labels & Tags'],
+        title: ['Product ', 'Labels & ', 'Tags'],
+        whiteTitleParts: [2],
         desc: 'Clear labels and tags that support product information, pricing, packaging and brand recognition across your customer experience.',
         icon: <FaShieldAlt />,
         heading: 'Why It Matters',
@@ -268,7 +263,7 @@ const ProductsPage = () => {
 
     useSeo({
         title: 'Carbon Printing Press LLC | Products & Services',
-        description: 'Explore Carbon Printing Press products and services, including business cards, packaging boxes, food packaging, promotional products, stationery, stickers, brochures, labels and tags.',
+        description: 'Explore Carbon Printing Press products and services, including business cards, packaging boxes, food packaging, promotional products, stationery, brochures, labels and tags.',
         canonicalUrl: 'https://www.carbonprintstore.com/products',
         ogType: 'website',
         ogImage: 'https://www.carbonprintstore.com/assets/generated-commercial-printing.webp',
@@ -334,7 +329,13 @@ const ProductsPage = () => {
                                     viewport={{ once: true, amount: 0.2 }}
                                     variants={textVariants}
                                 >
-                                    {product.title[0]}<span>{product.title[1]}</span>
+                                    {product.title.map((part, index) => {
+                                        if (product.whiteTitleParts?.includes(index)) {
+                                            return <span className="product-title-white" key={`${index}-${part}`}>{part}</span>;
+                                        }
+
+                                        return index === 0 ? part : <span key={`${index}-${part}`}>{part}</span>;
+                                    })}
                                 </motion.h2>
                                 <motion.p
                                     initial={{ opacity: 0, y: 30 }}

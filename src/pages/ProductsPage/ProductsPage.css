@@ -91,6 +91,10 @@
     color: var(--accent);
 }
 
+.product-content h2 span.product-title-white {
+    color: #fff;
+}
+
 .product-content>p {
     color: var(--text-secondary);
     font-size: 16px;
