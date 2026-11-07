@@ -125,7 +125,7 @@ const HomePage = () => {
             latitude: 25.3463,
             longitude: 55.4209,
         },
-        hasMap: 'https://www.google.com/maps?q=Sharjah%2C%20UAE',
+        hasMap: 'https://maps.app.goo.gl/T6vZxuS46N4m44Vs9?g_st=ic',
         areaServed: [
             { '@type': 'City', name: 'Sharjah' },
             { '@type': 'Country', name: 'United Arab Emirates' },
@@ -316,11 +316,11 @@ const HomePage = () => {
                         </div>
                         <div className="hp-map reveal">
                             <iframe
-                                src="https://www.google.com/maps?q=Sharjah%2C%20UAE&output=embed"
+                                src="https://www.google.com/maps?q=7MHJ%2B44M%20Sharjah%20Media%20City%20-%20Al%20Mtsannid%20Suburb%20-%20Sharjah&output=embed"
                                 allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="Carbon Printing Press location in Sharjah"
+                                title="Carbon Printing Press location at Sharjah Media City"
                             />
                         </div>
                     </div>

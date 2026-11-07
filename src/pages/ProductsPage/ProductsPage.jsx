@@ -58,7 +58,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/generated-food-packaging.webp',
+        img: '/assets/printed-food-packaging.jpeg',
         title: ['Printed ', 'Food Packaging'],
         whiteTitleParts: [1],
         desc: 'Food packaging solutions for cafés, restaurants and food brands, combining clear presentation with dependable everyday performance.',
@@ -74,6 +74,7 @@ const products = [
     {
         img: '/assets/generated-shopping-bags.webp',
         title: ['Branded ', 'Shopping Bags'],
+        whiteTitleParts: [0],
         desc: 'Professional shopping bags that carry your products securely while extending your brand presence beyond the store or delivery point.',
         icon: <FaBolt />,
         heading: 'Why It Matters',
@@ -100,7 +101,7 @@ const products = [
         ],
     },
     {
-        img: '/assets/generated-stationery-branding-v2.webp',
+        img: '/assets/corporate-stationery-branding.jpeg',
         title: ['Corporate Stationery', ' & ', 'Branding Materials'],
         whiteTitleParts: [0],
         desc: 'A coordinated range of stationery and branded materials that gives every customer touchpoint a polished, professional finish.',
@@ -115,7 +116,7 @@ const products = [
         reverse: true,
     },
     {
-        img: '/assets/generated-screen-printing.webp',
+        img: '/assets/uniforms-custom-apparel.jpeg',
         title: ['Uniforms & ', 'Custom Apparel'],
         whiteTitleParts: [1],
         desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise across every customer touchpoint.',
