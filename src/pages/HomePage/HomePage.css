@@ -188,6 +188,9 @@
     font-style              : normal;
     color                   : var(--red-soft);
 }
+.hp-section-heading .hp-heading-white {
+    color: #fff;
+}
 
 /* ── SERVICES ──────────────────────────────────────────────── */
 .hp-services { background: var(--bg-black); }
