@@ -14,7 +14,9 @@ const slides = [
     image: '/assets/main-image.webp',
     video: '/assets/cpp-video.webm',
     kicker: 'Carbon Printing Press LLC',
-    subtitle: 'Solutions Partner',
+    subtitle: 'Print. Package. Promote. Solution Partner',
+    subtitleBelowTitle: true,
+    brandColors: true,
     title: 'Premium <span>Printing &amp; Branding</span>',
     description: 'Delivering High-Quality Commercial, Gift Items, Uniform, Digital, Screen and Packaging Printing Solutions with Modern Technology and Fast Turnaround.',
     btnText: 'Request a Quote',
@@ -103,7 +105,7 @@ const SlideContent = ({ slide, isActive }) => {
     <>
       {slide.kicker && (
         <motion.div
-          className="slide-kicker"
+          className={`slide-kicker${slide.brandColors ? ' slide-kicker-brand' : ''}`}
           variants={subtitleVariants}
           initial="initial"
           animate="animate"
@@ -112,24 +114,38 @@ const SlideContent = ({ slide, isActive }) => {
           {slide.kicker}
         </motion.div>
       )}
-      <motion.div
-        className="slide-subtitle"
-        variants={subtitleVariants}
-        initial="initial"
-        animate="animate"
-        key={`sub-${slide.subtitle}`}
-      >
-        {slide.subtitle}
-      </motion.div>
+      {!slide.subtitleBelowTitle && (
+        <motion.div
+          className="slide-subtitle"
+          variants={subtitleVariants}
+          initial="initial"
+          animate="animate"
+          key={`sub-${slide.subtitle}`}
+        >
+          {slide.subtitle}
+        </motion.div>
+      )}
 
       <motion.h1
-        className="slide-title"
+        className={`slide-title${slide.brandColors ? ' slide-title-brand' : ''}`}
         variants={titleVariants}
         initial="initial"
         animate="animate"
         key={`title-${slide.title}`}
         dangerouslySetInnerHTML={{ __html: slide.title }}
       />
+
+      {slide.subtitleBelowTitle && (
+        <motion.div
+          className={`slide-subtitle slide-subtitle-below-title${slide.brandColors ? ' slide-subtitle-brand' : ''}`}
+          variants={subtitleVariants}
+          initial="initial"
+          animate="animate"
+          key={`sub-${slide.subtitle}`}
+        >
+          {slide.subtitle}
+        </motion.div>
+      )}
 
       <motion.p
         className="slide-text"
