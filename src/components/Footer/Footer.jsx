@@ -12,7 +12,7 @@ const Footer = () => {
                 <div className="footer-top">
                     <div className="footer-brand">
                         <Link to="/" className="logo">
-                            <img src="/assets/carbon-logo.webp" alt="Carbon Printing Press LLC" className="footer-logo-img" />
+                            <img src="/assets/carbon-logo-white.svg" alt="Carbon Printing Press LLC" className="footer-logo-img" />
                         </Link>
                         <p>Carbon Printing Press LLC delivers high-quality printing, packaging and branding solutions from Sharjah, UAE.</p>
                     </div>

@@ -28,9 +28,9 @@
     max-width: 100%;
     margin-bottom: 24px;
     filter: none;
-    background: #fff;
-    padding: 8px 14px;
-    border-radius: 6px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
     transition: transform 0.3s ease;
 }
 

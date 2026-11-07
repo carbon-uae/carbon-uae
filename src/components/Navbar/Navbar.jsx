@@ -65,7 +65,7 @@ const Navbar = () => {
             <div className="navbar-container">
                 <motion.div variants={navLinkVariants}>
                     <Link to="/" className="logo" onClick={closeMenu}>
-                        <img src="/assets/carbon-logo.webp" alt="Carbon Printing Press LLC" className="logo-img" />
+                        <img src="/assets/carbon-logo-white.svg" alt="Carbon Printing Press LLC" className="logo-img" />
                     </Link>
                 </motion.div>
 
