@@ -76,6 +76,10 @@
   color: var(--c-red);
 }
 
+.slide-subtitle-yellow {
+  color: var(--c-yellow);
+}
+
 .slide-kicker {
   color: var(--c-red-coral);
   font-size: 0.78rem;

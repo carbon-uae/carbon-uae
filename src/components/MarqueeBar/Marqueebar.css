@@ -52,9 +52,9 @@
   object-fit: contain;
   opacity: 0.9;
   filter: none;
-  background: #fff;
-  padding: 3px 8px;
-  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   transition: opacity 0.2s ease;
 }
 

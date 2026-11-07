@@ -181,6 +181,9 @@
     margin-bottom  : 44px;
     color          : var(--red);
 }
+#services .hp-section-heading {
+    color: #fff;
+}
 .hp-section-heading em {
     font-style              : normal;
     color                   : var(--red-soft);

@@ -25,6 +25,7 @@ const slides = [
   {
     image: '/assets/generated-commercial-printing.webp',
     subtitle: 'Designed for Your Brand',
+    brandColors: true,
     title: 'Commercial <span>Printing</span>',
     description: 'From Business Cards and Stationery to Brochures, Flyers and Branded Materials, Every Detail is Produced to Make a Strong Impression.',
     btnText: 'View Services',
@@ -33,6 +34,7 @@ const slides = [
   {
     image: '/assets/generated-digital-uv-printing.webp',
     subtitle: 'Modern Machinery',
+    brandColors: true,
     title: 'Built for <span>Fast Turnaround</span>',
     description: 'Advanced Production Capabilities, Professional Support and High-Quality Finishing for Projects of Every Scale.',
     btnText: 'Start a Project',
@@ -116,7 +118,7 @@ const SlideContent = ({ slide, isActive }) => {
       )}
       {!slide.subtitleBelowTitle && (
         <motion.div
-          className="slide-subtitle"
+          className={`slide-subtitle${slide.brandColors ? ' slide-subtitle-yellow' : ''}`}
           variants={subtitleVariants}
           initial="initial"
           animate="animate"

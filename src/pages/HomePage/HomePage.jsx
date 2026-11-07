@@ -110,7 +110,7 @@ const HomePage = () => {
         name: 'CARBON PRINTING PRESS LLC',
         legalName: 'CARBON PRINTING PRESS LLC',
         url: 'https://www.carbonprintstore.com/',
-        logo: 'https://www.carbonprintstore.com/assets/carbon-logo.webp',
+        logo: 'https://www.carbonprintstore.com/assets/carbon-logo-white.svg',
         image: 'https://www.carbonprintstore.com/assets/main-image.webp',
         description: 'High-quality commercial, gift item, uniform, digital, screen and packaging printing solutions in Sharjah, UAE.',
         telephone: '+971563766467',
