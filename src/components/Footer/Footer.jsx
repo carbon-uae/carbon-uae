@@ -15,7 +15,7 @@ const Footer = () => {
                             <img src="/assets/carbon-logo-white.svg" alt="Carbon Printing Press LLC" className="footer-logo-img" />
                         </Link>
                         <p className="footer-tagline">PRINT. PACKAGE. PROMOTE.</p>
-                        <p>Carbon Printing Press LLC delivers high-quality printing, packaging and branding solutions from Sharjah, UAE.</p>
+                        <p>Carbon Printing Press LLC delivers High-quality Printing, Packaging and Branding Solutions Partner</p>
                     </div>
 
                     <div className="footer-top-grid">
