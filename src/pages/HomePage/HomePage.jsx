@@ -75,7 +75,7 @@ const services = [
     { img: '/assets/generated-posm-display.webp', title: 'Point of Sale Material (POSM)', desc: 'Printed displays and point-of-sale materials that help products stand out at the point of purchase.' },
     { img: '/assets/gift-promotion-items.webp', title: 'Gift & Promotion Items', desc: 'Branded gift and promotional items that keep your business memorable.' },
     { img: '/assets/generated-signage-branding.webp', title: 'Signage & Outdoor Branding', desc: 'Consistent signage and outdoor branding materials for professional spaces and campaigns.' },
-    { img: '/assets/custom-apparel-uniforms.webp', title: 'Custom Apparel & Uniform Printing', desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise.' },
+    { img: '/assets/custom-apparel-uniforms.webp', title: 'Uniform Apparel & Custom Printing', desc: 'Custom apparel and uniform printing that helps teams look consistent, professional and easy to recognise.' },
 ];
 
 const stats = [

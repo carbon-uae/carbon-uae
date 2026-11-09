@@ -14,8 +14,10 @@ const slides = [
     image: '/assets/main-image.webp',
     video: '/assets/cpp-video.webm',
     kicker: 'Carbon Printing Press LLC',
-    subtitle: 'Print. Package. Promote. Solution Partner',
-    subtitleBelowTitle: true,
+    subtitle: 'Print. Package. Promote.',
+    subtitleRed: true,
+    subtitleContinuation: 'Solution Partner',
+    subtitleBelowTitle: false,
     brandColors: true,
     title: 'Premium <span>Printing &amp; Branding</span>',
     description: 'Delivering High-Quality Commercial, Gift Items, Uniform, Digital, Screen and Packaging Printing Solutions with Modern Technology and Fast Turnaround.',
@@ -118,7 +120,7 @@ const SlideContent = ({ slide, isActive }) => {
       )}
       {!slide.subtitleBelowTitle && (
         <motion.div
-          className={`slide-subtitle${slide.brandColors ? ' slide-subtitle-yellow' : ''}`}
+          className={`slide-subtitle${slide.subtitleRed ? ' slide-subtitle-brand' : slide.brandColors ? ' slide-subtitle-yellow' : ''}`}
           variants={subtitleVariants}
           initial="initial"
           animate="animate"
@@ -136,6 +138,18 @@ const SlideContent = ({ slide, isActive }) => {
         key={`title-${slide.title}`}
         dangerouslySetInnerHTML={{ __html: slide.title }}
       />
+
+      {slide.subtitleContinuation && (
+        <motion.div
+          className="slide-subtitle slide-subtitle-brand slide-subtitle-below-title"
+          variants={titleVariants}
+          initial="initial"
+          animate="animate"
+          key={`sub-continuation-${slide.subtitleContinuation}`}
+        >
+          {slide.subtitleContinuation}
+        </motion.div>
+      )}
 
       {slide.subtitleBelowTitle && (
         <motion.div
