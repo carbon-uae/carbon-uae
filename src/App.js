@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import WhatsAppFloat from './components/WhatsAppFloat/WhatsAppFloat';
 import PageLoader from './components/PageLoader/PageLoader';
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
       </Routes>
+      <WhatsAppFloat />
       <ScrollToTop />
       <Footer />
     </Router>
